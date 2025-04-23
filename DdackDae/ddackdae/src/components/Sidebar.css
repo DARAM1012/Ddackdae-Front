@@ -1,0 +1,63 @@
+.sidebar {
+  width: 80px;
+  height: 100vh;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 상단과 하단 영역 분리 */
+  align-items: center;
+  padding: 20px 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo img {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+.icon span {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+
+}
+
+.bottom span{
+  font-size: 12px;
+  margin-top: 4px;
+}

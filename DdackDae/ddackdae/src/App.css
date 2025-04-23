@@ -1,0 +1,7 @@
+/* App.css */
+.sidebar {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  z-index: 10;
+}
