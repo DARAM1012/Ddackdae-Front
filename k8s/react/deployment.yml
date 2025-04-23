@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: react-nginx
-        image: taeyoungk/ddackdae-frontend:11
+        image: taeyoungk/ddackdae-frontend:12
         ports:
         - containerPort: 80
         resources:
