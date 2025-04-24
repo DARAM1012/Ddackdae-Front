@@ -1,7 +1,7 @@
 // src/main.jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import App from '@/App'
 
 // ✅ 전역 스타일은 여기!
 import './index.css'
