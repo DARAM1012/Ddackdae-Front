@@ -1,5 +1,5 @@
-import './Sidebar.css'
-import logoImg from '../assets/logo2.png'
+import '@/components/Sidebar.css'
+import logoImg from '@/assets/logo2.png'
 import { FaSearch, FaBookmark, FaUser } from 'react-icons/fa'
 
 function Sidebar() {
