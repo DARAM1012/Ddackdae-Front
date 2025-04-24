@@ -1,5 +1,5 @@
 import '@/components/SideOpen.css'
-import SideHeader from '@/components/SideHeader'
+import SideHeader from '@/components/SideHeader.jsx'
 
 function SideOpen () {
     return ( 
