@@ -1,4 +1,13 @@
-.sidebar {
+.sidebar{
+  width: 480px;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  top: 0;
+  z-index: 999;
+}
+.sidebarNav {
   width: 80px;
   height: 100vh;
   background-color: #f4f4f4;
@@ -6,13 +15,16 @@
   flex-direction: column;
   justify-content: space-between; /* 상단과 하단 영역 분리 */
   align-items: center;
-  padding: 20px 0;
   position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 999;
+  padding: 20px 0;
 }
-
+.sideOpen{
+ width: 400px;
+ height: 100vh;
+ display: flex;
+ justify-content: right;
+ margin-left: auto;
+}
 .top {
   display: flex;
   flex-direction: column;

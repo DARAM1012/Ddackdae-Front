@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import './App.css'
 import parkingClusters from './data/mockParkingCluster'
 import Sidebar from './components/Sidebar'
-import SideOpen from './components/SideOpen.jsx'
+
 
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
   return (
     <div>
       <Sidebar /> {/* ✅ 지도 위에 사이드바 */}
-      <SideOpen />
+     
       <div
         ref={mapRef}
         id="map"
