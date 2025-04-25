@@ -1,0 +1,98 @@
+.ParkingLotComponent {
+  width: 100%;
+  height: auto;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.numberOfParking {
+  width: 70%;
+  height: 25px;
+  background-color: #f9ecd9;
+  border-radius: 5px;
+  padding: 2.5px 2%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.parkingLotState {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: "Pretendard-Medium";
+  color: #fff;
+  text-align: center;
+  align-content: center;
+}
+.parkingLotState.redColor {
+  background-color: #af0003;
+}
+
+.parkingLotState.orangeColor {
+  background-color: #ea9000;
+}
+.parkingLotState.greenColor {
+  background-color: #459400;
+}
+.parkingLotState.blueColor {
+  background-color: #0087c0;
+}
+.numberOfParking p:nth-child(2) {
+  font-size: 1.5rem;
+}
+
+.parkingLotImg {
+  width: 100%;
+  height: 200px;
+  border: 0.5px solid #b8b8b8;
+  border-radius: 10px;
+}
+
+.parkingLotImg img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.parkingLotInfo_1,
+.parkingLotInfo_2 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.parkingLotInfo_1 p:nth-child(1) {
+  color: #0c1844;
+  font-size: 2rem;
+  font-family: "Pretendard-SemiBold";
+}
+.parkingLotInfo_1 p:nth-child(2) {
+  color: #b8b8b8;
+  font-size: 1.8rem;
+}
+.parkingLotInfo_2 p:nth-child(1) {
+  color: #5e5e5e;
+  font-size: 1.5rem;
+}
+.parkingLotInfo_2 p:nth-child(2) {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  text-align: center;
+  align-content: center;
+  font-size: 1.8rem;
+  transition: background-color 0.3s ease;
+}
+.notFavorite {
+  border: 0.5px solid #b8b8b8;
+  background-color: #fff;
+}
+.favorite {
+  border: 0.5px solid #00b7b3;
+  background-color: #00b7b3;
+}
