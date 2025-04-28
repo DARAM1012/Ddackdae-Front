@@ -34,7 +34,7 @@ function App() {
         <div style="
           background-color: rgba(0, 183, 178, 0.8);
           color: white;
-          font-size: 16px;
+          font-size: 1.6rem;
           font-weight: bold;
           width: 44px;
           height: 44px;

@@ -102,13 +102,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #333;
   cursor: pointer;
 }
 
 .icon span {
-  font-size: 12px;
+  font-size: 1.2rem;
   margin-top: 4px;
 }
 
@@ -116,12 +116,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #333;
   margin-bottom: 30px;
 }
 
 .bottom span {
-  font-size: 12px;
+  font-size: 1.2rem;
   margin-top: 4px;
 }
