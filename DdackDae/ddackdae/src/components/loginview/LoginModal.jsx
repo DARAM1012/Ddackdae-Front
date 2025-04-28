@@ -1,9 +1,9 @@
-import "./LoginModal.css";
+import "@/components/loginview/LoginModal.css";
 import { useState } from "react";
-import titlelogo from "../../assets/logo2.png";
-import googlelogo from "../../assets/google.png";
-import kakaologo from "../../assets/kakao.png";
-import naverlogo from "../../assets/naver.png";
+import titlelogo from "@/assets/logo2.png";
+import googlelogo from "@/assets/google.png";
+import kakaologo from "@/assets/kakao.png";
+import naverlogo from "@/assets/naver.png";
 function LoginModal({ onClose, onSignupClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1,6 +1,6 @@
-import "@/components/Search/SideOpenBody/FavoriteBody.css";
+import "@/components/search/sideOpenBody/FavoriteBody.css";
 import FavoriteButton from "@/components/search/sideOpenBody/reuse/FavoriteButton.jsx";
-import RealTimeStateColor from "@/components/Search/sideOpenBody/reuse/RealTimeStateColor.jsx";
+import RealTimeStateColor from "@/components/search/sideOpenBody/reuse/RealTimeStateColor.jsx";
 
 function FavoriteBody() {
     

@@ -1,8 +1,8 @@
 // src/App.jsx
 import { useEffect, useRef } from 'react'
 import './App.css'
-import parkingClusters from './data/mockParkingCluster.js'
-import Sidebar from './components/Sidebar.jsx'
+import parkingClusters from '@/data/mockParkingCluster.js'
+import Sidebar from '@/components/Sidebar.jsx'
 
 
 
