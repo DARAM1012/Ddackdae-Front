@@ -1,6 +1,6 @@
 import "./SignupModal.css";
 import { useState } from "react";
-import titlelogo from "../../assets/logo2.png";
+import titlelogo from "@/assets/logo2.png";
 import {
   FaXmark
 } from "react-icons/fa6";

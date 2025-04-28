@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '@/components/Search/sideOpenBody/reuse/reuse.css'
+import '@/components/search/sideOpenBody/reuse/reuse.css'
 
 function RealTimeStateColor() {
   const [stateColor, setStateColor] = useState("redColor");

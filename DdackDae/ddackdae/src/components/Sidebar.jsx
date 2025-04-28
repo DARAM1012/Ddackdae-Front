@@ -7,10 +7,10 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
-import SideOpen from "@/components/search/sideOpen";
+import SideOpen from "@/components/search/SideOpen.jsx";
 import { useState } from "react";
-import LoginModal from "../components/loginview/LoginModal";
-import SignupModal from "../components/signupview/SignupModal";
+import LoginModal from "@/components/loginview/LoginModal.jsx";
+import SignupModal from "@/components/signupview/SignupModal.jsx";
 
 function Sidebar() {
   const [open, setOpen] = useState(false);
