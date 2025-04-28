@@ -1,5 +1,11 @@
 function ParkingLotDetails() {
-    return ( 'parkingLotDetails' );
+    return ( 
+        <section>
+            <article>
+                
+            </article>
+        </section>
+     );
 }
 
 export default ParkingLotDetails;

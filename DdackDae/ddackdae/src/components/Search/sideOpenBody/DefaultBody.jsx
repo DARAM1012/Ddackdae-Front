@@ -1,32 +1,13 @@
 import "@/components/Search/SideOpenBody/DefaultBody.css";
 import seoulPark from "@/assets/seoulPark.jpeg";
-import { useState } from "react";
-import FavoritButton from "@/components/search/sideOpenBody/reuse/FavoritButton";
+import FavoriteButton from "@/components/search/sideOpenBody/reuse/FavoriteButton.jsx";
+import RealTimeStateColor from "@/components/Search/sideOpenBody/reuse/RealTimeStateColor.jsx";
 
 function DefaultBody() {
-  const [star, setStar] = useState(false);
-  const [stateColor, setStateColor] = useState("redColor");
-
-  //   주차장 상태에 따른 색상 변경
-  const viewColor = {
-    redColor: "redColor",
-    orangeColor: "orangeColor",
-    greenColor: "greenColor",
-    blueColor: "blueColor",
-  };
-
-  // 찜하기 버튼
-  const favoriteStar = () => {
-    setStar((o) => !o);
-  };
-
   return (
     <section>
       <article className="ParkingLotComponent">
-        <div className="numberOfParking">
-          <p className={`parkingLotState ${viewColor[stateColor]}`}>만차</p>
-          <p>주차가능대수 0/1000</p>
-        </div>
+        <RealTimeStateColor />
         <div className="parkingLotImg">
           <img src={seoulPark} alt="seoulPark" />
         </div>
@@ -36,9 +17,7 @@ function DefaultBody() {
         </div>
         <div className="parkingLotInfo_2">
           <p>영업중 | 20:00에 영업 종료</p>
-          <p className={`${star ? "favorite" : "notFavorite"}`}>
-            <FavoritButton />
-          </p>
+            <FavoriteButton />
         </div>
       </article>
     </section>

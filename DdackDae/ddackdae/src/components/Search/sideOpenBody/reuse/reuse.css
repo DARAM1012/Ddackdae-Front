@@ -1,0 +1,61 @@
+/* FavoriteButton */
+.FavoriteButton {
+  width: 50px;
+  height: 25px;
+  text-align: right;
+  align-content: center;
+  font-size: 1.8rem;
+  transition: background-color 0.3s ease;
+}
+.notFavorite {
+  border-radius: 5px;
+  padding: 0.3rem;
+  border: 0.5px solid #b8b8b8;
+  background-color: #fff;
+}
+.favorite {
+  border-radius: 5px;
+  padding: 0.3rem;
+  border: 0.5px solid #00b7b3;
+  background-color: #00b7b3;
+}
+
+/* RealTimeStateColor */
+.numberOfParking {
+  width: 70%;
+  height: 25px;
+  background-color: #f9ecd9;
+  border-radius: 5px;
+  padding: 2.5px 2%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.parkingLotState {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: "Pretendard-Medium";
+  color: #fff;
+  text-align: center;
+  align-content: center;
+}
+
+.parkingLotState.redColor {
+  background-color: #af0003;
+}
+
+.parkingLotState.orangeColor {
+  background-color: #ea9000;
+}
+.parkingLotState.greenColor {
+  background-color: #459400;
+}
+.parkingLotState.blueColor {
+  background-color: #0087c0;
+}
+.numberOfParking p:nth-child(2) {
+  font-size: 1.5rem;
+}

@@ -1,11 +1,27 @@
+import "@/components/Search/SideOpenBody/FavoriteBody.css";
+import FavoriteButton from "@/components/search/sideOpenBody/reuse/FavoriteButton.jsx";
+import RealTimeStateColor from "@/components/Search/sideOpenBody/reuse/RealTimeStateColor.jsx";
+
 function FavoriteBody() {
-    return ( 
-        <section>
-            <article>
-                ''
-            </article>
-        </section>
-     );
+    
+  return (
+    <section>
+      <article className="FavoriteList">
+        <div className="StateColorAndFavorite">
+          <RealTimeStateColor />
+          <FavoriteButton />
+        </div>
+        <div className="FavoriteInfo_1">
+          <p>서울대공원 주차장</p>
+          <p>공영주차장</p>
+        </div>
+        <div className="FavoriteInfo_2">
+          <p>영업중 | 20:00에 영업 종료</p>
+          <p>경기 과천시 대공원광장로 102</p>
+        </div>
+      </article>
+    </section>
+  );
 }
 
 export default FavoriteBody;
