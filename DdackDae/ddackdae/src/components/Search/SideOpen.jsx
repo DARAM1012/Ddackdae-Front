@@ -1,10 +1,10 @@
 import logo from "@/assets/logo.png";
-import "@/components/Search/SideOpen.css";
+import "@/components/search/sideOpen.css";
 import { FaSearch, FaClock } from "react-icons/fa";
-import DefaultBody from "@/components/Search/SideOpenBody/DefaultBody.jsx";
-import SearchBody from "@/components/Search/SideOpenBody/SearchBody.jsx";
-import FavoriteBody from "@/components/Search/SideOpenBody/FavoriteBody.jsx";
-import ParkingLotDetails from "@/components/Search/SideOpenBody/ParkingLotDetails.jsx";
+import DefaultBody from "@/components/search/sideOpenBody/DefaultBody.jsx";
+import SearchBody from "@/components/search/sideOpenBody/SearchBody.jsx";
+import FavoriteBody from "@/components/search/sideOpenBody/FavoriteBody.jsx";
+import ParkingLotDetails from "@/components/search/sideOpenBody/ParkingLotDetails.jsx";
 import { useEffect, useState } from "react";
 
 function SideOpen(selectKey) {

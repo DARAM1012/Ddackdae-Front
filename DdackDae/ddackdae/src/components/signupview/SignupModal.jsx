@@ -1,6 +1,10 @@
 import "./SignupModal.css";
 import { useState } from "react";
 import titlelogo from "../../assets/logo2.png";
+import {
+  FaXmark
+} from "react-icons/fa6";
+
 function SignupModal({ onClose }) {
   const profileattack = (e) => {
     e.preventDefault();
@@ -17,7 +21,7 @@ function SignupModal({ onClose }) {
       <div className="modal-window" onClick={(e) => e.stopPropagation()}>
         <div className="modal-div">
           <button className="modal-sign-close" onClick={onClose}>
-            X
+            <FaXmark />
           </button>
           <div className="modal-sign-title">
             <h1>

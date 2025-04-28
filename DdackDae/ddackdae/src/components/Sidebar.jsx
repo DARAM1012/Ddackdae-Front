@@ -7,7 +7,7 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
-import SideOpen from "@/components/Search/SideOpen";
+import SideOpen from "@/components/search/sideOpen";
 import { useState } from "react";
 import LoginModal from "../components/loginview/LoginModal";
 import SignupModal from "../components/signupview/SignupModal";
