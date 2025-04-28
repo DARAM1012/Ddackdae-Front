@@ -1,4 +1,4 @@
-import '@/components/Search/sideOpenBody/reuse/reuse.css'
+import '@/components/search/sideOpenBody/reuse/reuse.css'
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
 

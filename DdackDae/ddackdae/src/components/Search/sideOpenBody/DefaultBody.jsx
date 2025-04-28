@@ -1,7 +1,7 @@
-import "@/components/Search/SideOpenBody/DefaultBody.css";
+import "@/components/search/sideOpenBody/DefaultBody.css";
 import seoulPark from "@/assets/seoulPark.jpeg";
 import FavoriteButton from "@/components/search/sideOpenBody/reuse/FavoriteButton.jsx";
-import RealTimeStateColor from "@/components/Search/sideOpenBody/reuse/RealTimeStateColor.jsx";
+import RealTimeStateColor from "@/components/search/sideOpenBody/reuse/RealTimeStateColor.jsx";
 
 function DefaultBody() {
   return (
