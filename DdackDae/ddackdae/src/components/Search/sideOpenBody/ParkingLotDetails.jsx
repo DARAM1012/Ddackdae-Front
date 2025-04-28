@@ -1,4 +1,4 @@
-
+import RealTimeStateColor from '@/components/search/sideOpenBody/reuse/RealTimeStateColor.jsx'
 
 function ParkingLotDetails() {
   return (

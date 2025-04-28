@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.png";
-import "@/components/search/sideOpen.css";
+import "@/components/search/SideOpen.css";
 import { FaSearch, FaClock } from "react-icons/fa";
 import DefaultBody from "@/components/search/sideOpenBody/DefaultBody.jsx";
 import SearchBody from "@/components/search/sideOpenBody/SearchBody.jsx";
