@@ -1,0 +1,43 @@
+.ParkingLotComponent {
+  width: 100%;
+  height: auto;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.parkingLotImg {
+  width: 100%;
+  height: 200px;
+  border: 0.5px solid #b8b8b8;
+  border-radius: 10px;
+}
+
+.parkingLotImg img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.parkingLotInfo_1,
+.parkingLotInfo_2 {
+  width: 99%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.parkingLotInfo_1 p:nth-child(1) {
+  color: #0c1844;
+  font-size: 2rem;
+  font-family: "Pretendard-SemiBold";
+}
+.parkingLotInfo_1 p:nth-child(2) {
+  color: #b8b8b8;
+  font-size: 1.8rem;
+}
+.parkingLotInfo_2 p:nth-child(1) {
+  color: #5e5e5e;
+  font-size: 1.5rem;
+}

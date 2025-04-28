@@ -1,0 +1,46 @@
+.FavoriteList {
+  width: 92%;
+  height: 110px;
+  padding: 4% 4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+.StateColorAndFavorite {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.FavoriteInfo_1 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.FavoriteInfo_1 p:nth-child(1) {
+  color: #0c1844;
+  font-size: 2rem;
+  font-family: "Pretendard-SemiBold";
+}
+.FavoriteInfo_1 p:nth-child(2) {
+  color: #b8b8b8;
+  font-size: 1.8rem;
+}
+.FavoriteInfo_2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.FavoriteInfo_2 p {
+  font-size: 1.5rem;
+}
+.FavoriteInfo_2 p:nth-child(1) {
+  color: #5e5e5e;
+}
