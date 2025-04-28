@@ -1,0 +1,219 @@
+.div {
+  padding: 0;
+  margin: 0;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  width: 500px;
+  height: 700px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.modal-login-title {
+  position: absolute;
+  top: 45px; /* top 30px */
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); /* 텍스트의 중앙이 top: 30px에 고정되도록 */
+  margin: 0;
+}
+
+.modal-login-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+  z-index: 999;
+}
+
+.modal-login-title h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 30px; /* 텍스트 크기 */
+}
+
+.modal-subtitle {
+  position: absolute;
+  top: 130px; /* 높이 111px */
+  left: 50px;
+  transform: translateY(-50%); /* 텍스트의 세로 중앙을 top: 111px에 맞추기 */
+  margin: 0;
+}
+
+.modal-subtitle h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 25px; /* 텍스트 크기 */
+}
+
+.modal-subtext {
+  position: absolute;
+  top: 170px; /* 높이 152px로 설정 */
+  left: 50px; /* 왼쪽으로 50px 떨어지게 설정 */
+  transform: translateY(-50%); /* 세로 중앙 정렬 */
+  margin: 0;
+  padding: 0;
+  font-size: 15px; /* 텍스트 크기 */
+}
+
+.modal-login-div-logo {
+  width: 34px;
+  height: 34px;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+
+.modal-login-div1 {
+  position: absolute;
+  top: 230px; /* 높이 189px로 설정 */
+  left: 50%; /* 왼쪽으로 50px 떨어지게 설정 */
+  transform: translateX(-50%) translateY(-50%); /* 세로 중앙 정렬 */
+  margin: 0;
+  padding: 0;
+  background-color: #fae100;
+  font-size: 23px;
+  width: 400px;
+  height: 60px;
+  align-items: center;
+  /* justify-content: center; */
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.modal-login-div2 {
+  position: absolute;
+  top: 300px; /* 높이 262px로 설정 */
+  left: 50%; /* 왼쪽으로 50px 떨어지게 설정 */
+  transform: translateX(-50%) translateY(-50%); /* 세로 중앙 정렬 */
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-size: 23px;
+  width: 400px;
+  height: 60px;
+  align-items: center;
+  /* justify-content: center; */
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
+  cursor: pointer;
+}
+
+.modal-login-div3 {
+  position: absolute;
+  top: 370px; /* 높이 335px로 설정 */
+  left: 50%; /* 왼쪽으로 50px 떨어지게 설정 */
+  transform: translateX(-50%) translateY(-50%); /* 세로 중앙 정렬 */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #00ff6b 0%, #009e59 100%);
+  font-size: 23px; /* 텍스트 크기 */
+  width: 400px;
+  height: 60px;
+  align-items: center; /* 세로 중앙 정렬 */
+  /* justify-content: center; */
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.centered-line-div {
+  position: absolute;
+  top: 440px; /* 높이 450px로 설정 */
+  left: 50%; /* 왼쪽으로 50% 위치에 설정 */
+  transform: translateX(-50%) translateY(-50%); /* 중앙 정렬 */
+  display: flex;
+  align-items: center; /* 텍스트와 선을 세로로 정렬 */
+  width: 400px; /* 부모 div가 충분한 너비를 가지도록 설정 */
+}
+
+.centered-line-div::before,
+.centered-line-div::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: #b8b8b8; /* 선 색상 */
+}
+
+.centered-line-div-text {
+  color: #b8b8b8;
+  font-size: 15px;
+  padding: 0 10px; /* 텍스트 양옆에 여백 추가 */
+  white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 설정 */
+}
+
+.form-div {
+  position: absolute;
+  top: 530px; /* 높이 450px로 설정 */
+  left: 50%; /* 왼쪽으로 50% 위치에 설정 */
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.form-div-input1 {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px 10px 0 0; /* 상단 좌우에만 라운드 */
+  font-size: 15px; /* 글자 크기 */
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0.5px solid #b8b8b8; /* 테두리 설정 */
+}
+
+.form-div-input2 {
+  width: 400px;
+  height: 50px;
+  border-radius: 0 0 10px 10px; /* 하단 좌우에만 라운드 */
+  font-size: 15px; /* 글자 크기 */
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0.5px solid #b8b8b8; /* 테두리 설정 */
+  border-top: none;
+}
+
+.login-butten {
+  width: 400px;
+  height: 50px;
+  position: absolute;
+  top: 620px; /* 높이 450px로 설정 */
+  left: 50%; /* 왼쪽으로 50% 위치에 설정 */
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #00b7b3;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.signup-butten {
+  position: absolute;
+  top: 670px; /* 높이 450px로 설정 */
+  right: 51px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 15px;
+  color: #5e5e5e;
+}

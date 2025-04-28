@@ -1,0 +1,273 @@
+.div {
+  padding: 0;
+  margin: 0;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-window {
+  background-color: white;
+  width: 500px;
+  height: 700px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.modal-div {
+  width: 440px;
+  height: 640px;
+  background-color: rgb(230, 164, 164);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-subdiv {
+  width: 400px;
+  height: 558px;
+  background-color: yellow;
+  position: relative;
+  top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column; /* 자식 요소들을 세로로 배치 */
+  justify-content: flex-start; /* 자식 요소들이 상단부터 배치되도록 설정 */
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100%;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+
+.modal-subdiv::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.modal-profile-header-div {
+  background-color: aqua;
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+.modal-sign-title {
+  position: absolute;
+  top: -6px; /* top 30px */
+  left: 50%;
+  transform: translateX(-50%); /* 텍스트의 중앙이 top: 30px에 고정되도록 */
+  margin: 0;
+}
+
+.modal-titlelogo {
+  margin-right: 3px;
+  width: auto; /* 가로 크기 자동 */
+  height: 27px; /* 텍스트 높이에 맞게 크기 조정 */
+}
+
+.modal-sign-close {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+  z-index: 999;
+}
+
+.modal-sign-title h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 30px; /* 텍스트 크기 */
+}
+
+.modal-profile-image-div {
+  width: 140px;
+  height: 120px;
+  background-color: green;
+  position: relative;
+}
+
+.modal-profile-image {
+  width: 120px;
+  height: 120px;
+  background-color: #fafafa;
+  border: 0.5px solid #b8b8b8;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-profile-input p {
+  margin: 0; /* p 태그의 기본 마진을 제거 */
+  font-size: 15px; /* 원하는 텍스트 크기 */
+  margin-bottom: 5px; /* 텍스트와 입력창 사이에 간격을 추가 */
+}
+
+.modal-profile-input-text {
+  font-size: 15px;
+}
+.modal-profile-input {
+  display: flex; /* 수평 배치를 위해 flex 사용 */
+  flex-direction: column; /* 수직 배치를 위해 column으로 설정 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  margin-top: 53px;
+}
+
+.modal-profile-input input {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.modal-sign-body-div {
+  background-color: chartreuse;
+  box-sizing: border-box;
+}
+
+.madal-sign-body-div-input {
+  margin-top: 15px;
+}
+
+.madal-sign-body-div-input p {
+  margin: 0; /* p 태그의 기본 마진을 제거 */
+  font-size: 15px; /* 원하는 텍스트 크기 */
+  margin-bottom: 5px; /* 텍스트와 입력창 사이에 간격을 추가 */
+}
+.madal-sign-body-div-input input {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.madal-sign-body-div-select {
+  margin-top: 15px;
+}
+
+.madal-sign-body-div-select p {
+  margin: 0; /* p 태그의 기본 마진을 제거 */
+  font-size: 15px; /* 원하는 텍스트 크기 */
+  margin-bottom: 5px; /* 텍스트와 입력창 사이에 간격을 추가 */
+}
+.modal-sign-dropdown {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  font-size: 15px;
+  color: #333;
+  /* appearance: none;  드롭다운 기본 화살표 숨기기 (선택 사항) */
+}
+
+.modal-sign-dropdown:focus {
+  outline: none; /* 포커스 시 outline 제거 */
+}
+
+.modal-sign-dropdown2 {
+  width: 230px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  font-size: 15px;
+  color: #333;
+  /* appearance: none;  드롭다운 기본 화살표 숨기기 (선택 사항) */
+}
+
+.modal-sign-dropdown2:focus {
+  outline: none; /* 포커스 시 outline 제거 */
+}
+
+.modal-sign-select-row {
+  display: flex;
+  justify-content: space-between; /* 공간이 넓으면 양쪽 정렬 */
+}
+
+.modal-sign-checklist-div {
+  width: 100%;
+  background-color: rgb(175, 147, 175);
+}
+.modal-sign-checklist-div h4 {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.modal-sign-checklist-div ul {
+  margin: 0;
+}
+.modal-sign-checklist-div li {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.modal-sign-checklist-list {
+  margin-top: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.checklist-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-right: 70px;
+  font-size: 13px;
+  margin-left: 3px;
+  gap: 3px;
+}
+
+.checklist-item input {
+  margin-right: 8px;
+}
+
+.check-detail {
+  margin-left: 5px;
+  position: absolute;
+  right: 0;
+  color: #b8b8b8;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 2px;
+}
+
+.signup-complete-butten {
+  width: 100%;
+  height: 50px;
+  background-color: #00b7b3;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
