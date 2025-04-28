@@ -5,6 +5,7 @@ import parkingClusters from './data/mockParkingCluster'
 import Sidebar from './components/Sidebar'
 
 
+
 function App() {
   const mapRef = useRef(null)
   const clientId = import.meta.env.VITE_NAVER_MAP_CLIENT_ID
@@ -60,6 +61,7 @@ function App() {
   return (
     <div>
       <Sidebar /> {/* ✅ 지도 위에 사이드바 */}
+     
       <div
         ref={mapRef}
         id="map"
