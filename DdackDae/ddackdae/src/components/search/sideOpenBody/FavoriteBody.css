@@ -27,6 +27,7 @@
   color: #0c1844;
   font-size: 2rem;
   font-family: "Pretendard-SemiBold";
+  cursor: pointer;
 }
 .FavoriteInfo_1 p:nth-child(2) {
   color: #b8b8b8;

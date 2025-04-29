@@ -23,3 +23,7 @@ input:focus{
   background-color: rgba(0,183,179,5%);
   border: 2px solid #00b7b3;
 }
+button{
+  border: none;
+  background:none
+}

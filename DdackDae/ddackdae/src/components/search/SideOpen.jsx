@@ -5,21 +5,18 @@ import DefaultBody from "@/components/search/sideOpenBody/DefaultBody.jsx";
 import SearchBody from "@/components/search/sideOpenBody/SearchBody.jsx";
 import FavoriteBody from "@/components/search/sideOpenBody/FavoriteBody.jsx";
 import ParkingLotDetails from "@/components/search/sideOpenBody/ParkingLotDetails.jsx";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-function SideOpen(selectKey) {
+function SideOpen({ selectValue, onChangeSelectValue }) {
   const hashTagRank = ["동대문", "서울역", "광화문", "롯데타워"];
-  const [viewBody, setViewBody] = useState(selectKey.selectValue);
-
-  useEffect(() => {
-    setViewBody(selectKey.selectValue);
-  }, [selectKey.selectValue]);
+  console.log(selectValue)
+  // const [viewBody, setViewBody] = useState(selectKey.selectValue);
 
   const bodyMap = {
-    default: <DefaultBody />,
-    search: <SearchBody />,
-    favorite: <FavoriteBody />,
-    details: <ParkingLotDetails />,
+    default: <DefaultBody onSelect={onChangeSelectValue} />,
+    search: <SearchBody onSelect={onChangeSelectValue} />,
+    favorite: <FavoriteBody onSelect={onChangeSelectValue} />,
+    details: <ParkingLotDetails onSelect={onChangeSelectValue} />,
   };
 
   return (
@@ -33,7 +30,7 @@ function SideOpen(selectKey) {
           <input type="text" placeholder="검색어를 입력하세요."></input>
           <FaSearch
             className="searchIcon"
-            onClick={() => setViewBody("search")}
+            onClick={() => onChangeSelectValue("search")}
           />
         </div>
         <div className="hashTag">
@@ -45,10 +42,10 @@ function SideOpen(selectKey) {
 
       {/* Side Body */}
       <article className="sideBody">
-      <p className="upDateTime">
-        <FaClock /> 업데이트 : 04.25(금) 오후 7:24
-      </p>
-        {bodyMap[viewBody] || <DefaultBody />}
+        <p className="upDateTime">
+          <FaClock /> 업데이트 : 04.25(금) 오후 7:24
+        </p>
+        {bodyMap[selectValue] || <DefaultBody onSelect={onChangeSelectValue} />}
       </article>
 
       {/* Side Footer */}
