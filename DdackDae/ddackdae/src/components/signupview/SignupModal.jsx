@@ -1,9 +1,7 @@
 import "./SignupModal.css";
 import { useState } from "react";
-import titlelogo from "@/assets/logo2.png";
-import {
-  FaXmark
-} from "react-icons/fa6";
+import titlelogo from "@/assets/logo.png";
+import {FaXmark} from "react-icons/fa6";
 
 function SignupModal({ onClose }) {
   const profileattack = (e) => {
@@ -17,7 +15,8 @@ function SignupModal({ onClose }) {
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div className="modal-backdrop">
+      {/* <div className="modal-backdrop" onClick={onClose}> */}
       <div className="modal-window" onClick={(e) => e.stopPropagation()}>
         <div className="modal-div">
           <button className="modal-sign-close" onClick={onClose}>
@@ -30,7 +29,6 @@ function SignupModal({ onClose }) {
                 alt="titlelogo"
                 className="modal-titlelogo"
               />
-              딱대
             </h1>
           </div>
           <div className="modal-subdiv">
@@ -163,7 +161,7 @@ function SignupModal({ onClose }) {
 
             {/* 가입완료 버튼 */}
             <div className="signup-complete-butten" onClick={signcomplete}>
-              <p>회원가입 하기</p>
+              <p>가입완료</p>
             </div>
           </div>
         </div>

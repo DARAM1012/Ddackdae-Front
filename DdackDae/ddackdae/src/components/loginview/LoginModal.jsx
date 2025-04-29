@@ -1,9 +1,11 @@
 import "@/components/loginview/LoginModal.css";
 import { useState } from "react";
-import titlelogo from "@/assets/logo2.png";
+import titlelogo from "@/assets/logo.png";
 import googlelogo from "@/assets/google.png";
 import kakaologo from "@/assets/kakao.png";
 import naverlogo from "@/assets/naver.png";
+import {FaXmark} from "react-icons/fa6";
+
 function LoginModal({ onClose, onSignupClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,12 +20,11 @@ function LoginModal({ onClose, onSignupClick }) {
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-window" onClick={(e) => e.stopPropagation()}>
         <button className="modal-login-close" onClick={onClose}>
-          X
+           <FaXmark />
         </button>
         <div className="modal-login-title">
           <h1>
             <img src={titlelogo} alt="titlelogo" className="modal-titlelogo" />
-            딱대
           </h1>
         </div>
         <div className="modal-subtitle">

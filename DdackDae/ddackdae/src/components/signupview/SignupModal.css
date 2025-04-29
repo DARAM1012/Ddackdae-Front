@@ -28,7 +28,7 @@
 .modal-div {
   width: 440px;
   height: 640px;
-  background-color: rgb(230, 164, 164);
+  /* background-color: rgb(230, 164, 164); */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -38,7 +38,7 @@
 .modal-subdiv {
   width: 400px;
   height: 558px;
-  background-color: yellow;
+  /* background-color: yellow; */
   position: relative;
   top: 62px;
   left: 50%;
@@ -60,23 +60,23 @@
 }
 
 .modal-profile-header-div {
-  background-color: aqua;
+  /* background-color: aqua; */
   display: flex;
   align-items: center; /* 수직 중앙 정렬 */
 }
 
 .modal-sign-title {
   position: absolute;
-  top: -6px; /* top 30px */
+  /* top: -6px; top 30px */
   left: 50%;
   transform: translateX(-50%); /* 텍스트의 중앙이 top: 30px에 고정되도록 */
   margin: 0;
 }
 
 .modal-titlelogo {
-  margin-right: 3px;
+  /* margin-right: 3px; */
   width: auto; /* 가로 크기 자동 */
-  height: 27px; /* 텍스트 높이에 맞게 크기 조정 */
+  height: 30px; /* 텍스트 높이에 맞게 크기 조정 */
 }
 
 .modal-sign-close {
@@ -100,7 +100,7 @@
 .modal-profile-image-div {
   width: 140px;
   height: 120px;
-  background-color: green;
+  /* background-color: green; */
   position: relative;
 }
 
@@ -129,7 +129,7 @@
   display: flex; /* 수평 배치를 위해 flex 사용 */
   flex-direction: column; /* 수직 배치를 위해 column으로 설정 */
   align-items: flex-start; /* 왼쪽 정렬 */
-  margin-top: 53px;
+  margin-top: 57px;
 }
 
 .modal-profile-input input {
@@ -144,7 +144,7 @@
 
 .modal-sign-body-div {
   width: 100%;
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
 }
 
 .madal-sign-body-div-input {
@@ -162,7 +162,7 @@
   height: 40px;
   border-radius: 10px;
   box-sizing: border-box;
-  /* border: 1px solid #b8b8b8; */
+  border: 1px solid #b8b8b8;
   padding: 10px;
 
 }
@@ -215,7 +215,7 @@
 
 .modal-sign-checklist-div {
   width: 100%;
-  background-color: rgb(175, 147, 175);
+  /* background-color: rgb(175, 147, 175); */
 }
 .modal-sign-checklist-div h4 {
   margin-top: 30px;
@@ -271,4 +271,9 @@
   border-radius: 10px;
   cursor: pointer;
   margin-top: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.signup-complete-butten p{
+  font-size: 1.5rem;
 }
