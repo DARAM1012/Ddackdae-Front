@@ -6,7 +6,7 @@ import kakaologo from "@/assets/kakao.png";
 import naverlogo from "@/assets/naver.png";
 import {FaXmark} from "react-icons/fa6";
 
-function LoginModal({ onClose, onSignupClick }) {
+function LoginModal({ onClose, onSignupClick, reviewClick, EditUserClick, UserInformationClick}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,6 +15,9 @@ function LoginModal({ onClose, onSignupClick }) {
     alert(`로그인 시도\n\nemail : ${email}\n비밀번호 : ${password}`);
     // onClose()
   };
+
+
+
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -33,7 +36,7 @@ function LoginModal({ onClose, onSignupClick }) {
         <div className="modal-subtext">
           <p>소셜아이디로 1초 만에 로그인 하세요.</p>
         </div>
-        <div className="modal-login-div1">
+        <div className="modal-login-div1" onClick={reviewClick}>
           <img
             src={kakaologo}
             alt="kakaologo"
@@ -41,7 +44,7 @@ function LoginModal({ onClose, onSignupClick }) {
           />
           <p>카카오로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div2">
+        <div className="modal-login-div2" onClick={EditUserClick}>
           <img
             src={googlelogo}
             alt="googlelogo"
@@ -49,7 +52,7 @@ function LoginModal({ onClose, onSignupClick }) {
           />
           <p>구글로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div3">
+        <div className="modal-login-div3" onClick={UserInformationClick}>
           <img
             src={naverlogo}
             alt="naverlogo"
