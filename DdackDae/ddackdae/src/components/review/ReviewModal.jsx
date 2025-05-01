@@ -2,7 +2,8 @@ import "./ReviewModal.css";
 import { useState } from "react";
 import titlelogo from "@/assets/logo.png";
 import {FaXmark} from "react-icons/fa6";
-
+import point1 from "@/assets/point1.png"
+import point2 from "@/assets/point2.png"
 function ReviewModal({ onClose }) {
 
   const [reviewtext, setreviewtext] = useState("")
@@ -36,8 +37,33 @@ function ReviewModal({ onClose }) {
           <div className="modal-review-subdiv">
 {/* 별점 */}
             <div className="modal-review-pointdiv">
-            <p>리뷰</p>
-            <div className="modal-point">☆☆☆☆☆</div>
+            <p>평점</p>
+            <div className="modal-point"> <img
+                src={point1}
+                alt="point1"
+                className="modal-point-image"
+              />
+               <img
+                src={point1}
+                alt="point1"
+                className="modal-point-image"
+              />
+               <img
+                src={point1}
+                alt="point1"
+                className="modal-point-image"
+              />
+               <img
+                src={point1}
+                alt="point1"
+                className="modal-point-image"
+              />
+               <img
+                src={point2}
+                alt="point2"
+                className="modal-point-image"
+              />
+              </div>
             </div>
             {/* 텍스트박스 */}
             <div className="modal-review-bodydiv">

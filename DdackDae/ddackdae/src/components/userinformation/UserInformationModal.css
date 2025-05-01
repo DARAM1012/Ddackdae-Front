@@ -1,0 +1,159 @@
+.modal-userinfor-div {
+    width: 400px;
+    height: 578px;
+    /* background-color: yellow; */
+    position: relative;
+    top: 62px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column; /* 자식 요소들을 세로로 배치 */
+    justify-content: flex-start; /* 자식 요소들이 상단부터 배치되도록 설정 */
+  
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+  
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE, Edge */
+  }
+
+  .modal-userinfor-header-div {
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+  }
+  
+  .modal-userinfor-input {
+    display: flex; /* 수평 배치를 위해 flex 사용 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+  flex-direction: row;
+  /* background-color: cadetblue; */
+  }
+
+  .modal-userinfor-input p {
+    margin: 0; /* p 태그의 기본 마진을 제거 */
+    font-size: 15px; /* 원하는 텍스트 크기 */
+    margin-bottom: 5px; /* 텍스트와 입력창 사이에 간격을 추가 */
+  }
+  .modal-userinfor-inputdiv {
+    display: flex;
+    flex-direction: row;
+    /* background-color: red;  */
+    display: flex; /* flexbox 사용 */
+    margin-top: 31px;
+  }
+  .modal-userinfor-inputdiv-line {
+    width: 150px;
+    height: 21px;
+    margin-top: 18px;
+    /* background-color: blue; */
+    border: none;
+    border-bottom: 1px solid #00B7B3;
+  }
+  .modal-userinfor-inputdiv-line p {
+    margin-left: 12px;
+    font-size: 15px;
+  }
+
+  .modal-userinfor-body-div-input {
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+margin-bottom: 40px;
+  }
+  .modal-userinfor-body-div-input-div {
+    width: 270px;
+    height: 20px;
+    /* background-color: rgb(203, 154, 154); */
+    border: none;
+    border-bottom: 1px solid #00B7B3;
+    margin-left: auto;
+    /* box-sizing: border-box; */
+    /* margin-bottom: 31px; */
+  }
+
+  .modal-userinfor-body-div-input p {
+    margin: 0; /* p 태그의 기본 마진을 제거 */
+    font-size: 15px; /* 원하는 텍스트 크기 */
+    margin-bottom: 5px; /* 텍스트와 입력창 사이에 간격을 추가 */
+  }
+  .modal-userinfor-body-div-input-div p {
+    margin-left: 12px;
+  }
+
+ 
+
+  .modal-userinfor-input input {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #b8b8b8;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  .modal-userinfor-body-div {
+    width: 100%;
+    /* background-color: chartreuse; */
+    margin-top: 31px;
+  }
+ 
+  .modal-userinfor-image {
+    width: 120px;
+    height: 120px;
+    background-color: #fafafa;
+    border: 0.5px solid #b8b8b8;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items:center;
+    justify-content :center;
+  }
+
+  .modal-userinfor-buttendiv {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%; 
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: green; */
+    align-items:center;
+  }
+  .modal-userinfor-buttendiv-text {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  .modal-userinfor-buttendiv-text p {
+    font-size: 12px;
+    color: #b8b8b8;
+  }
+
+  .modal-userinfor-butten {
+    width: 100px;
+    height: 40px;
+    background-color: #FFFFFF;
+    border: 1px solid #b8b8b8;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex; /* flexbox 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .modal-userinfor-butten p {
+    font-size: 1.7rem;
+    color: #5e5e5e;
+  }
+
+  .modal-userinfor-butten-image {
+    width: 24px;
+    height: 24px;
+  }
