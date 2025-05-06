@@ -1,0 +1,75 @@
+.modal-edit-div {
+  width: 400px;
+  height: 578px;
+  /* background-color: yellow; */
+  position: relative;
+  top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column; /* 자식 요소들을 세로로 배치 */
+  justify-content: flex-start; /* 자식 요소들이 상단부터 배치되도록 설정 */
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100%;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+.modal-userimage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.modal-edit-oauthlogo {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+}
+
+.modal-edit-buttendiv {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  /* background-color: chartreuse; */
+}
+
+.modal-edit-butten1 {
+  width: 100px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #b8b8b8;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex; /* flexbox 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  text-align: center;
+  margin-right: 29px;
+}
+.modal-edit-butten1 p {
+  font-size: 1.7rem;
+  color: #5e5e5e;
+}
+.modal-edit-butten2 {
+  width: 100px;
+  height: 40px;
+  background-color: #00b7b3;
+  border: 1px solid #00b7b3;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex; /* flexbox 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  text-align: center;
+}
+.modal-edit-butten2 p {
+  font-size: 1.7rem;
+  color: #ffffff;
+}

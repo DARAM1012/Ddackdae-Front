@@ -1,7 +1,8 @@
 import "./SignupModal.css";
 import { useState } from "react";
 import titlelogo from "@/assets/logo.png";
-import {FaXmark} from "react-icons/fa6";
+import defaultimage from "../../assets/defaultimage.png"
+import { FaXmark } from "react-icons/fa6";
 
 function SignupModal({ onClose }) {
   const profileattack = (e) => {
@@ -37,11 +38,19 @@ function SignupModal({ onClose }) {
                 <div
                   className="modal-profile-image"
                   onClick={profileattack}
-                ></div>
+                >
+                  <img
+                src={defaultimage}
+                alt="defaultimage"
+                className="modal-defaultimage"
+              />
+                </div>
               </div>
               <div className="modal-profile-input">
                 <p>닉네임</p>
+                <div className="modal-profile-inputdiv">
                 <input type="text" placeholder="2~8자/문자, 숫자 사용 가능" />
+                </div>
               </div>
             </div>
             <div className="modal-sign-body-div">

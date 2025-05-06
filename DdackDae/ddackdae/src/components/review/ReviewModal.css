@@ -1,7 +1,7 @@
 .modal-review-subdiv {
     width: 400px;
     height: 558px;
-    background-color: yellow;
+    /* background-color: yellow; */
     position: relative;
     top: 62px;
     left: 50%;
@@ -21,7 +21,7 @@
   }
 
   .modal-review-pointdiv {
-    background-color: aqua;
+    /* background-color: aqua; */
   }
 
   .modal-review-pointdiv p {
@@ -31,11 +31,20 @@
   .modal-point {
     width: 233px;
     height: 46.6px;
-    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    /* background-color: blue; */
+    margin-top: 3px;
+  }
+  .modal-point-image {
+    width: 46.6px;
+    height: 46.6px;
+    cursor: pointer;
   }
 
   .modal-review-bodydiv {
-background-color: rgb(128, 128, 107);
+/* background-color: rgb(128, 128, 107); */
+margin-top: 20px;
   }
   .modal-review-bodydiv p {
     font-size: 1.8rem;
@@ -44,7 +53,8 @@ background-color: rgb(128, 128, 107);
   .modal-review-bodytestbox{
     width: 400px;
     height: 200px;
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
+    margin-top: 5px;
   }
   .modal-review-bodytestbox p {
     font-size: 1.5rem;
@@ -59,7 +69,8 @@ background-color: rgb(128, 128, 107);
   }
 
   .modal-review-imagediv {
-background-color: rgb(174, 159, 185);
+/* background-color: rgb(174, 159, 185); */
+margin-top: 20px;
   }
   .modal-review-imagediv p{
 font-size: 1.8rem;
@@ -79,7 +90,8 @@ height: 22px;
   .modal-review-imagetest {
     width: 391px;
     height: 30px;
-    background-color: azure;
+    /* background-color: azure; */
+    margin-top: 5px;
   }
   .modal-review-imagetest p {
     font-size: 12px;
@@ -88,14 +100,14 @@ height: 22px;
   .modal-review-imagebox {
     display: flex;
     flex-direction: row;
-    background-color: brown;
+    /* background-color: brown; */
     /* gap: 10px; /* 박스 간 간격 */
-    /* margin-top: 10px; */
+    margin-top: 5px;
   }
   .modal-review-imageupload {
     width: 100px;
     height: 100px;
-    background-color: green;
+    background-color: #FFFFFF;
     border-radius: 10px;
     cursor: pointer;
     border: 2px dashed #b8b8b8;
@@ -103,6 +115,7 @@ height: 22px;
   justify-content: center;   /* 가로 중앙 정렬 */
   align-items: center;       /* 세로 중앙 정렬 */
   text-align: center; 
+  margin-right: 8px;
   }
   .modal-review-imageupload p {
     font-size: 1.2rem;
@@ -111,7 +124,7 @@ height: 22px;
   .modal-review-imageupdate {
     width: 100px;
     height: 100px;
-    background-color: silver;
+    background-color: #F0FFF3;
     border: 2px solid #b8b8b8;
     border-radius: 10px;
     cursor: pointer;
@@ -119,6 +132,7 @@ height: 22px;
   justify-content: center;   /* 가로 중앙 정렬 */
   align-items: center;       /* 세로 중앙 정렬 */
   text-align: center; 
+  margin-right: 8px;
   }
 
   .modal-review-imageupdate p {
@@ -134,20 +148,21 @@ height: 22px;
   
   display: flex;
   justify-content: flex-end;
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
   }
 
   .modal-review-butten1{
     width: 100px;
     height: 40px;
 background-color: #FFFFFF;
-border-color: #b8b8b8;
+border: 1px solid #b8b8b8;
 border-radius: 10px;
 cursor: pointer;
 display: flex;              /* flexbox 사용 */
   justify-content: center;   /* 가로 중앙 정렬 */
   align-items: center;       /* 세로 중앙 정렬 */
   text-align: center; 
+  margin-right: 29px;
   }
   .modal-review-butten1 p {
     font-size: 1.7rem;
@@ -157,6 +172,7 @@ display: flex;              /* flexbox 사용 */
     width: 100px;
     height: 40px;
     background-color: #00b7b3;
+    border: 1px solid #00b7b3;
     border-radius: 10px;
     cursor: pointer;
     display: flex;              /* flexbox 사용 */
