@@ -24,6 +24,10 @@ function Sidebar() {
   const [showEditUserModal, setEditUserModal] = useState(false);
   const [showUserInformationModal, setUserInformationModal ] = useState(false);
 
+  const handleBodySelect = (newKey) => {
+    setSelectValue(newKey || "default");
+  };
+
   const SelectKey = (value) => {
     setOpen(true);
     setSelectValue(value);
@@ -77,19 +81,19 @@ function Sidebar() {
             <img src={logo2} alt="로고" />
           </div>
           <div className="menu">
-            <div className="icon" onClick={() => SelectKey("search")}>
+            <div className="sidebarIcon" onClick={() => SelectKey("search")}>
               <FaSearch />
               <span>검색</span>
             </div>
-            <div className="icon" onClick={() => SelectKey("favorite")}>
+            <div className="sidebarIcon" onClick={() => SelectKey("favorite")}>
               <FaBookmark />
               <span>찜</span>
             </div>
           </div>
         </div>
 
-        <div className="bottom" onClick={loginview}>
-          <div className="icon">
+        <div className="sidebarBottom" onClick={loginview}>
+          <div className="sidebarIcon">
             <FaUser />
             <span>로그인</span>
           </div>
@@ -133,7 +137,10 @@ function Sidebar() {
       {showUserInformationModal && <UserInformationModal onClose={closeUserInformationModal} />}
 
       <div className={`sideOpen ${open ? "open" : "closed"}`}>
-        <SideOpen selectValue={selectValue} />
+        <SideOpen
+          selectValue={selectValue}
+          onChangeSelectValue={handleBodySelect}
+        />
       </div>
       <div
         className={`SideOpenAndCloseBtnBox ${open && "open"}`}

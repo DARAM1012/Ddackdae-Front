@@ -1,0 +1,185 @@
+/* 상단 ParkingLotComponent 부분은 DefaultBody.css에 있음. */
+
+/* 전체 */
+.ParkingLotDetailsComponent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 중간 찜, 거리뷰, 공유 버튼 부분 */
+.details3Buttons {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+.details3Button {
+  width: 13%;
+  font-size: 2rem;
+  text-align: center;
+  color: #5e5e5e;
+  line-height: 2.3rem;
+  cursor: pointer;
+
+}
+.detailsMiddleLine {
+  width: 1px;
+  height: 56px;
+  background-color: #b8b8b8;
+}
+.details3Button p {
+  font-size: 1.3rem;
+}
+.detailsFavorite{
+  color: #00b7b3;
+}
+
+/* 자세한 정보 구역 */
+.details-list {
+  font-size: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.details-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+}
+.details-list li .detailsIcon {
+  width: 20px;
+  text-align: center;
+  margin-right: 8px;
+  color: #333;
+}
+.details-list li .detailsValue {
+  margin-left: auto;
+  font-weight: bold;
+  background-color: #fff;
+  padding-left: 5px;
+  z-index: 999;
+}
+.detailsBtnCopy {
+  color: #1d7fff;
+  margin-left: 2px;
+  cursor: pointer;
+}
+.details-list li .detailsLabel::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  top: 80%;
+  margin: 0 5px;
+  border-bottom: 1px dotted #ccc;
+}
+
+/* 하단 리뷰 부분 */
+.detailsReview {
+  width: 100%;
+  height: auto;
+}
+.detailsReviewTitle {
+  width: 100%;
+  height: auto;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5.5px;
+  border-bottom: 1px solid #b8b8b8;
+}
+.visitorReview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.visitorReview span:nth-child(1)
+{
+  display: inline-block;
+  transform: scaleX(-1);
+
+}.visitorReview span:nth-child(2) {
+  margin-left: 8px;
+}
+.visitorReview span:nth-child(3) {
+  font-size: 1.6rem;
+  color: #5e5e5e;
+}
+.WriteReview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #5e5e5e;
+  padding: 1%;
+  cursor: pointer;
+}
+.WriteReview span {
+  margin-left: 4px;
+}
+.WriteReview span:nth-child(1) {
+ display: inline-block;
+ transform: scaleX(-1);
+}
+.detailsIndividualReview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.reviewerInformation {
+  width: 100%;
+  height: auto;
+  display: flex;
+  line-height: 2rem;
+  gap: 10px;
+  margin: 1.5rem 0;
+}
+.reviewerInformation img {
+  width: 40px;
+  height: 40px;
+  border: 0.5px solid #5e5e5e;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.reviewerNickname{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.reviewerNickname p {
+  font-size: 1.3rem;
+}
+.visitorRating {
+  width: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  flex: 1;
+}
+.visitorRating p:nth-child(1){
+  color: #00b7b3;
+}
+.visitorRating p:nth-child(2){
+  color: #5e5e5e;
+  font-size: 1rem;
+}
+.reviewContents {
+  font-size: 1.5rem;
+  padding: 1.6rem 1.3rem;
+  background-color: #fafafa;
+  /* background-color: #3e3e3e; */
+  border-radius: 10px;
+  position: relative;
+}
+.reviewContents::before {
+  content: "";
+  border: 10px solid;
+  border-color: transparent transparent #fafafa transparent;
+  top: -1.9rem;
+  position: absolute;
+}
