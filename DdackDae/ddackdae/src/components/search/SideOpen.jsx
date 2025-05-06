@@ -5,17 +5,22 @@ import DefaultBody from "@/components/search/sideOpenBody/DefaultBody.jsx";
 import SearchBody from "@/components/search/sideOpenBody/SearchBody.jsx";
 import FavoriteBody from "@/components/search/sideOpenBody/FavoriteBody.jsx";
 import ParkingLotDetails from "@/components/search/sideOpenBody/ParkingLotDetails.jsx";
+import useSidebarStore from "@/stores/useSidebarStore";
 // import { useEffect, useState } from "react";
 
-function SideOpen({ selectValue, onChangeSelectValue }) {
+function SideOpen() {
   const hashTagRank = ["동대문", "서울역", "광화문", "롯데타워"];
+  const {
+    selectedKey,
+    setSelectedKey,
+  } = useSidebarStore();
   // const [viewBody, setViewBody] = useState(selectKey.selectValue);
 
   const bodyMap = {
-    default: <DefaultBody onSelect={onChangeSelectValue} />,
-    search: <SearchBody onSelect={onChangeSelectValue} />,
-    favorite: <FavoriteBody onSelect={onChangeSelectValue} />,
-    details: <ParkingLotDetails onSelect={onChangeSelectValue} />,
+    default: <DefaultBody  />,
+    search: <SearchBody  />,
+    favorite: <FavoriteBody  />,
+    details: <ParkingLotDetails />,
   };
 
   return (
@@ -29,7 +34,7 @@ function SideOpen({ selectValue, onChangeSelectValue }) {
           <input type="text" placeholder="검색어를 입력하세요."></input>
           <FaSearch
             className="searchIcon"
-            onClick={() => onChangeSelectValue("search")}
+            onClick={() => setSelectedKey('search')}
           />
         </div>
         <div className="hashTag">
@@ -44,7 +49,7 @@ function SideOpen({ selectValue, onChangeSelectValue }) {
         <p className="upDateTime">
           <FaClock /> 업데이트 : 04.25(금) 오후 7:24
         </p>
-        {bodyMap[selectValue] || <DefaultBody onSelect={onChangeSelectValue} />}
+        {bodyMap[selectedKey] || <DefaultBody />}
       </article>
 
       {/* Side Footer */}

@@ -29,7 +29,9 @@ function ParkingLotDetails() {
   }
 
   return (
+    // 한개의 주차장 자세한 정보
     <section className="ParkingLotDetailsComponent">
+      {/* 상단. 주차장 사진 및 간략정보 부분 */}
       <article className="ParkingLotComponent">
         <RealTimeStateColor />
         <div className="parkingLotImg">
@@ -43,6 +45,7 @@ function ParkingLotDetails() {
           <p>영업중 | 20:00에 영업 종료</p>
         </div>
       </article>
+      {/* 중간. 찜, 거리뷰, 공유 부분 */}
       <article className="details3Buttons">
         <div
           className="details3Button"
@@ -62,6 +65,7 @@ function ParkingLotDetails() {
           <p>공유</p>
         </div>
       </article>
+      {/* 중간. 주차장 상세정보 부분 */}
       <article className="detailsInfo">
         <ul className="details-list">
           <li>
@@ -111,6 +115,7 @@ function ParkingLotDetails() {
           </li>
         </ul>
       </article>
+      {/* 하단. 주차장 리뷰 부분 */}
       <article className="detailsReview">
         <div className="detailsReviewTitle">
           <div className="visitorReview">

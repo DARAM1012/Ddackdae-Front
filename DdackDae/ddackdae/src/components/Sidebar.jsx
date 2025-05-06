@@ -11,21 +11,14 @@ import SideOpen from "../components/search/SideOpen.jsx";
 import { useState } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
+import useSidebarStore from "@/stores/useSidebarStore.js";
 
 function Sidebar() {
-  const [open, setOpen] = useState(false);
-  const [selectValue, setSelectValue] = useState("default");
+  const { isOpen, toggleSidebar, openSidebar} =
+    useSidebarStore();
   const [showModal, setShowModal] = useState(false);
   const [showSignModal, setSignModal] = useState(false);
 
-  const handleBodySelect = (newKey) => {
-    setSelectValue(newKey || "default");
-  };
-
-  const SelectKey = (value) => {
-    setOpen(true);
-    setSelectValue(value);
-  };
 
   const loginview = () => {
     setShowModal(true);
@@ -47,15 +40,15 @@ function Sidebar() {
     <section className="sidebar">
       <div className="sidebarNav">
         <div className="top">
-          <div className="logo" onClick={() => SelectKey("default")}>
+          <div className="logo" onClick={() => toggleSidebar()}>
             <img src={logo2} alt="로고" />
           </div>
           <div className="menu">
-            <div className="sidebarIcon" onClick={() => SelectKey("search")}>
+            <div className="sidebarIcon" onClick={() => openSidebar('search')}>
               <FaSearch />
               <span>검색</span>
             </div>
-            <div className="sidebarIcon" onClick={() => SelectKey("favorite")}>
+            <div className="sidebarIcon" onClick={() => openSidebar('favorite')}>
               <FaBookmark />
               <span>찜</span>
             </div>
@@ -85,18 +78,15 @@ function Sidebar() {
       {/* 회원가입 모달 */}
       {showSignModal && <SignupModal onClose={closeSingModal} />}
 
-      <div className={`sideOpen ${open ? "open" : "closed"}`}>
-        <SideOpen
-          selectValue={selectValue}
-          onChangeSelectValue={handleBodySelect}
-        />
+      <div className={`sideOpen ${isOpen ? "open" : "closed"}`}>
+        <SideOpen />
       </div>
       <div
-        className={`SideOpenAndCloseBtnBox ${open && "open"}`}
-        onClick={() => setOpen((o) => !o)}
+        className={`SideOpenAndCloseBtnBox ${isOpen && "open"}`}
+        onClick={() => toggleSidebar()}
       >
-        {!open && <FaChevronRight className="SideOpenAndCloseBtn OpenBtn" />}
-        {open && <FaChevronLeft className="SideOpenAndCloseBtn CloseBtn" />}
+        {!isOpen && <FaChevronRight className="SideOpenAndCloseBtn OpenBtn" />}
+        {isOpen && <FaChevronLeft className="SideOpenAndCloseBtn CloseBtn" />}
       </div>
     </section>
   );
