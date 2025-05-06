@@ -11,11 +11,11 @@ function FavoriteBody({onSelect}) {
           <RealTimeStateColor />
           <FavoriteButton />
         </div>
-        <div className="FavoriteInfo_1" >
-          <p onClick={()=>onSelect('details')}>서울대공원 주차장</p>
+        <div className="FavoriteInfo_1" onClick={()=>onSelect('details')}>
+          <p >서울대공원 주차장</p>
           <p>공영주차장</p>
         </div>
-        <div className="FavoriteInfo_2">
+        <div className="FavoriteInfo_2" onClick={()=>onSelect('details')}>
           <p>영업중 | 20:00에 영업 종료</p>
           <p>경기 과천시 대공원광장로 102</p>
         </div>

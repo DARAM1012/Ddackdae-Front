@@ -1,36 +1,74 @@
 // src/App.jsx
-import { useEffect, useRef } from 'react'
-import './App.css'
-import parkingClusters from '@/data/mockParkingCluster.js'
-import Sidebar from '@/components/Sidebar.jsx'
-
-
+import { useEffect, useRef } from "react";
+import "./App.css";
+import parkingClusters from "@/data/mockParkingCluster.js";
+import Sidebar from "@/components/Sidebar.jsx";
 
 function App() {
-  const mapRef = useRef(null)
-  const clientId = import.meta.env.VITE_NAVER_MAP_CLIENT_ID
+  const mapRef = useRef(null);
+  const clientId = import.meta.env.VITE_NAVER_MAP_CLIENT_ID;
 
   useEffect(() => {
-    if (!clientId || !mapRef.current) return
+    if (!clientId || !mapRef.current) return;
 
-    const script = document.createElement('script')
-    script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${clientId}`
-    script.async = true
+    const script = document.createElement("script");
+    script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${clientId}`;
+    script.async = true;
 
     script.onload = () => {
       if (window.naver && mapRef.current) {
         const map = new window.naver.maps.Map(mapRef.current, {
-          center: new window.naver.maps.LatLng(37.5665, 126.9780),
+          center: new window.naver.maps.LatLng(37.5665, 126.978),
           zoom: 14,
-        })
+          minZoom:7,
+          zoomControl: true,
+          zoomControlOptions: {
+            //줌 컨트롤의 옵션
+            position: naver.maps.Position.TOP_RIGHT,
+          },
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+            style: naver.maps.MapTypeControlStyle.DROPDOWN,
+          },
+        });
 
- // ✅ 클러스터 마커 렌더링
- parkingClusters.forEach((cluster) => {
-  const _marker = new window.naver.maps.Marker({
-    position: new window.naver.maps.LatLng(cluster.lat, cluster.lng),
-    map,
-    icon: {
-      content: `
+        var streetLayer = new naver.maps.StreetLayer();
+
+        var btn = $("#street");
+
+        naver.maps.Event.addListener(
+          map,
+          "streetLayer_changed",
+          function (streetLayer) {
+            if (streetLayer) {
+              btn.addClass("control-on");
+            } else {
+              btn.removeClass("control-on");
+            }
+          }
+        );
+
+        btn.on("click", function (e) {
+          e.preventDefault();
+
+          if (streetLayer.getMap()) {
+            streetLayer.setMap(null);
+          } else {
+            streetLayer.setMap(map);
+          }
+        });
+
+        naver.maps.Event.once(map, "init", function () {
+          streetLayer.setMap(map);
+        });
+
+        // ✅ 클러스터 마커 렌더링
+        parkingClusters.forEach((cluster) => {
+          const _marker = new window.naver.maps.Marker({
+            position: new window.naver.maps.LatLng(cluster.lat, cluster.lng),
+            map,
+            icon: {
+              content: `
         <div style="
           background-color: rgba(0, 183, 178, 0.8);
           color: white;
@@ -47,33 +85,31 @@ function App() {
           ${cluster.count}
         </div>
       `,
-      size: new window.naver.maps.Size(44, 44),
-      anchor: new window.naver.maps.Point(22, 22),
-    },
-  })
-})
+              size: new window.naver.maps.Size(44, 44),
+              anchor: new window.naver.maps.Point(22, 22),
+            },
+          });
+        });
       }
-    }
+    };
 
-    document.head.appendChild(script)
-  }, [clientId])
+    document.head.appendChild(script);
+  }, [clientId]);
 
   return (
     <div>
       <Sidebar /> {/* ✅ 지도 위에 사이드바 */}
-     
       <div
         ref={mapRef}
         id="map"
         style={{
-          width: '100%',
-          height: '100vh',
-          border: 'none',
+          width: "100%",
+          height: "100vh",
+          border: "none",
         }}
       />
-      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

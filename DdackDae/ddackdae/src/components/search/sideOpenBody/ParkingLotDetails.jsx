@@ -13,8 +13,21 @@ import {
   FaCommentMedical,
 } from "react-icons/fa";
 import { FaArrowUpRightFromSquare, FaLocationDot } from "react-icons/fa6";
+import { useState } from "react";
 
 function ParkingLotDetails() {
+  const [favoriteState, setFavoriteState] = useState(false);
+
+  // 공유하기 버튼 클릭 이벤트
+  const ShareModal = () =>{
+    alert('복사되었습니다.')
+  }
+
+  // 리뷰작성하기 버튼 클릭 이벤트
+  const WriteReview = () =>{
+    alert('리뷰작성하기 모달 연결해야지 얼른')
+  }
+
   return (
     <section className="ParkingLotDetailsComponent">
       <article className="ParkingLotComponent">
@@ -31,8 +44,11 @@ function ParkingLotDetails() {
         </div>
       </article>
       <article className="details3Buttons">
-        <div className="details3Button">
-          <FaStar />
+        <div
+          className="details3Button"
+          onClick={() => setFavoriteState((o) => !o)}
+        >
+          <FaStar className={`${favoriteState && "detailsFavorite"}`} />
           <p>찜하기</p>
         </div>
         <div className="detailsMiddleLine"></div>
@@ -41,7 +57,7 @@ function ParkingLotDetails() {
           <p>거리뷰</p>
         </div>
         <div className="detailsMiddleLine"></div>
-        <div className="details3Button">
+        <div className="details3Button" onClick={() => {ShareModal()}}>
           <FaArrowUpRightFromSquare />
           <p>공유</p>
         </div>
@@ -98,12 +114,16 @@ function ParkingLotDetails() {
       <article className="detailsReview">
         <div className="detailsReviewTitle">
           <div className="visitorReview">
-            <span><FaCommentDots /></span>
+            <span>
+              <FaCommentDots />
+            </span>
             <span>방문자 리뷰 </span>
             <span>1,234</span>
           </div>
-          <div className="WriteReview">
-            <span><FaCommentMedical /></span>
+          <div className="WriteReview" onClick={()=>{WriteReview()}}>
+            <span>
+              <FaCommentMedical />
+            </span>
             <span>리뷰 작성하기</span>
           </div>
         </div>
@@ -128,7 +148,7 @@ function ParkingLotDetails() {
             주차간격 넓고 좋아요.{"\n"}관리를 잘하시는 것 같아요.
           </p>
         </div>
-        
+
         <div className="detailsIndividualReview">
           <div className="reviewerInformation">
             <img src={profileImg} alt="" />
@@ -140,18 +160,14 @@ function ParkingLotDetails() {
                   <FaStar />
                   <FaStar />
                   <FaStar />
-                  <FaStar />
                 </p>
                 <p>2025.04.30(수)</p>
               </div>
             </div>
           </div>
-          <p className="reviewContents">
-            주차간격 넓고 좋아요. 너무 잠오네요
-          </p>
+          <p className="reviewContents">주차간격 넓고 좋아요. 너무 잠오네요</p>
         </div>
       </article>
-      
     </section>
   );
 }
