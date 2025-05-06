@@ -9,7 +9,6 @@ import ParkingLotDetails from "@/components/search/sideOpenBody/ParkingLotDetail
 
 function SideOpen({ selectValue, onChangeSelectValue }) {
   const hashTagRank = ["동대문", "서울역", "광화문", "롯데타워"];
-  console.log(selectValue)
   // const [viewBody, setViewBody] = useState(selectKey.selectValue);
 
   const bodyMap = {
