@@ -11,18 +11,12 @@ import SideOpen from "../components/search/SideOpen.jsx";
 import { useState } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
-import ReviewModal from "@/components/review/ReviewModal.jsx";
-import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
-import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
 
 function Sidebar() {
   const [open, setOpen] = useState(false);
   const [selectValue, setSelectValue] = useState("default");
   const [showModal, setShowModal] = useState(false);
   const [showSignModal, setSignModal] = useState(false);
-  const [showReviewModal, setReviewModal] = useState(false);
-  const [showEditUserModal, setEditUserModal] = useState(false);
-  const [showUserInformationModal, setUserInformationModal] = useState(false);
 
   const handleBodySelect = (newKey) => {
     setSelectValue(newKey || "default");
@@ -47,30 +41,6 @@ function Sidebar() {
 
   const closeSingModal = () => {
     setSignModal(false);
-  };
-
-  const Review = () => {
-    setReviewModal(true);
-  };
-
-  const closeReview = () => {
-    setReviewModal(false);
-  };
-
-  const EditUser = () => {
-    setEditUserModal(true);
-  };
-
-  const closeEditUserModal = () => {
-    setEditUserModal(false);
-  };
-
-  const UserInformation = () => {
-    setUserInformationModal(true);
-  };
-
-  const closeUserInformationModal = () => {
-    setUserInformationModal(false);
   };
 
   return (
@@ -99,48 +69,22 @@ function Sidebar() {
           </div>
         </div>
       </div>
+
       {/* 로그인 모달 */}
       {showModal && (
         <LoginModal
           onClose={closeModal}
           onSignupClick={() => {
+            console.log("회원가입 클릭됨"); // 확인용 로그
             closeModal();
             Singview();
           }}
-          reviewClick={() => {
-            closeModal();
-            Review();
-          }}
-          UserInformationClick={() => {
-            closeModal();
-            UserInformation();
-          }}
         />
       )}
-      ){/* 회원가입 모달 */}
+
+      {/* 회원가입 모달 */}
       {showSignModal && <SignupModal onClose={closeSingModal} />}
-      {/* 리뷰 모달 */}
-      {showReviewModal && <ReviewModal onClose={closeReview} />}
-      {/* 유저 에디트 모달 */}
-      {showEditUserModal && (
-  <EditUserModal
-    onClose={closeEditUserModal}
-    UserInformationClick={() => {
-      closeEditUserModal();
-      UserInformation();
-    }}
-  />
-)}
-      {/* 유저 프로필 모달 */}
-      {showUserInformationModal && (
-        <UserInformationModal
-          onClose={closeUserInformationModal}
-          UserInformationClick={() => {
-            closeUserInformationModal();
-            EditUser();
-          }}
-        />
-      )}
+
       <div className={`sideOpen ${open ? "open" : "closed"}`}>
         <SideOpen
           selectValue={selectValue}
