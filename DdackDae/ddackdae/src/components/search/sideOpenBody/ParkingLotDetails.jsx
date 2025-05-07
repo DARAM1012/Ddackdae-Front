@@ -19,14 +19,14 @@ function ParkingLotDetails() {
   const [favoriteState, setFavoriteState] = useState(false);
 
   // 공유하기 버튼 클릭 이벤트
-  const ShareModal = () =>{
-    alert('복사되었습니다.')
-  }
+  const ShareModal = () => {
+    alert("복사되었습니다.");
+  };
 
   // 리뷰작성하기 버튼 클릭 이벤트
-  const WriteReview = () =>{
-    alert('리뷰작성하기 모달 연결해야지 얼른')
-  }
+  const WriteReview = () => {
+    alert("리뷰작성하기 모달 연결해야지 얼른");
+  };
 
   return (
     // 한개의 주차장 자세한 정보
@@ -60,7 +60,12 @@ function ParkingLotDetails() {
           <p>거리뷰</p>
         </div>
         <div className="detailsMiddleLine"></div>
-        <div className="details3Button" onClick={() => {ShareModal()}}>
+        <div
+          className="details3Button"
+          onClick={() => {
+            ShareModal();
+          }}
+        >
           <FaArrowUpRightFromSquare />
           <p>공유</p>
         </div>
@@ -122,10 +127,15 @@ function ParkingLotDetails() {
             <span>
               <FaCommentDots />
             </span>
-            <span>방문자 리뷰 </span>
+            <span>방문자 리뷰</span>
             <span>1,234</span>
           </div>
-          <div className="WriteReview" onClick={()=>{WriteReview()}}>
+          <div
+            className="WriteReview"
+            onClick={() => {
+              WriteReview();
+            }}
+          >
             <span>
               <FaCommentMedical />
             </span>

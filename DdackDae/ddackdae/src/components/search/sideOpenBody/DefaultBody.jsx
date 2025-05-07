@@ -7,7 +7,7 @@ import useSidebarStore from "@/stores/useSidebarStore";
 function DefaultBody() {
   const { setSelectedKey } = useSidebarStore();
   return (
-    <section>
+    <section className="ParkingLotSection">
       <article className="ParkingLotComponent">
         <RealTimeStateColor />
         <div className="parkingLotImg" onClick={() => setSelectedKey('details')}>

@@ -6,21 +6,32 @@ import SearchBody from "@/components/search/sideOpenBody/SearchBody.jsx";
 import FavoriteBody from "@/components/search/sideOpenBody/FavoriteBody.jsx";
 import ParkingLotDetails from "@/components/search/sideOpenBody/ParkingLotDetails.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
+import { useState } from "react";
 // import { useEffect, useState } from "react";
 
 function SideOpen() {
+  const { selectedKey, setSelectedKey } = useSidebarStore();
   const hashTagRank = ["동대문", "서울역", "광화문", "롯데타워"];
-  const {
-    selectedKey,
-    setSelectedKey,
-  } = useSidebarStore();
-  // const [viewBody, setViewBody] = useState(selectKey.selectValue);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // selectedKey값에 따라 sideBody에 보여지는 컴포넌트 변경
   const bodyMap = {
-    default: <DefaultBody  />,
-    search: <SearchBody  />,
-    favorite: <FavoriteBody  />,
+    default: <DefaultBody />,
+    search: <SearchBody />,
+    favorite: <FavoriteBody />,
     details: <ParkingLotDetails />,
+  };
+
+  const inputSearchTerm = () => {
+    if (!searchTerm.trim()) return alert("검색어를 입력하세요");
+    console.log("검색어: ", searchTerm);
+    setSelectedKey("search");
+  };
+
+  const handleHashTagClick = (place) => {
+    console.log('해시태그 클릭: ',place);
+    setSearchTerm(place);
+    setSelectedKey("search");
   };
 
   return (
@@ -31,15 +42,19 @@ function SideOpen() {
           <img src={logo} alt="logo" />
         </div>
         <div className="searchInput">
-          <input type="text" placeholder="검색어를 입력하세요."></input>
-          <FaSearch
-            className="searchIcon"
-            onClick={() => setSelectedKey('search')}
-          />
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+            placeholder="검색어를 입력하세요."
+          ></input>
+          <FaSearch className="searchIcon" onClick={inputSearchTerm} />
         </div>
         <div className="hashTag">
           {hashTagRank.map((place, index) => (
-            <span key={index}>#{place}</span>
+            <span key={index} onClick={() => handleHashTagClick(place)}>#{place}</span>
           ))}
         </div>
       </article>

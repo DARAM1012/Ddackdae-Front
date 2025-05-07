@@ -1,10 +1,17 @@
+.ParkingLotSection {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 .ParkingLotComponent {
   width: 100%;
   height: auto;
-  gap: 5px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 25px;
+  gap: 5px;
 }
 
 .parkingLotImg {
