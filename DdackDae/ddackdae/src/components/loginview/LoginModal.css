@@ -101,6 +101,7 @@
 }
 .modal-login-div1 p{
   font-size: 2.3rem;
+  cursor: pointer;
 }
 .modal-login-div2 {
   position: absolute;
@@ -122,6 +123,7 @@
 }
 .modal-login-div2 p{
   font-size: 2.3rem;
+  cursor: pointer;
 }
 .modal-login-div3 {
   position: absolute;
@@ -143,6 +145,7 @@
 }
 .modal-login-div3 p{
   font-size: 2.3rem;
+  cursor: pointer;
 }
 .centered-line-div {
   position: absolute;
@@ -214,6 +217,7 @@
 }
 .login-butten p {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 .signup-butten {
   position: absolute;
@@ -226,4 +230,5 @@
 }
 .signup-butten p {
   font-size: 1.5rem;
+  cursor: pointer;
 }

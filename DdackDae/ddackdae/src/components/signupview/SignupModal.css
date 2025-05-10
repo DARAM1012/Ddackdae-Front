@@ -280,4 +280,5 @@
 }
 .signup-complete-butten p {
   font-size: 1.5rem;
+  cursor: pointer;
 }

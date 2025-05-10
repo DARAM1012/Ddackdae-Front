@@ -166,6 +166,7 @@
 .modal-review-butten1 p {
   font-size: 1.7rem;
   color: #5e5e5e;
+  cursor: pointer;
 }
 .modal-review-butten2 {
   width: 100px;
@@ -182,4 +183,5 @@
 .modal-review-butten2 p {
   font-size: 1.7rem;
   color: #ffffff;
+  cursor: pointer;
 }
