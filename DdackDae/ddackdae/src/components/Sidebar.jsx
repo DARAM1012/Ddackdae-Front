@@ -11,7 +11,7 @@ import SideOpen from "../components/search/SideOpen.jsx";
 import { useState } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
-import ReviewModal from "@/components/review/ReviewModal.jsx"
+import ReviewModal from "@/components/review/ReviewModal.jsx";
 import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
 import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
 
@@ -22,7 +22,7 @@ function Sidebar() {
   const [showSignModal, setSignModal] = useState(false);
   const [showReviewModal, setReviewModal] = useState(false);
   const [showEditUserModal, setEditUserModal] = useState(false);
-  const [showUserInformationModal, setUserInformationModal ] = useState(false);
+  const [showUserInformationModal, setUserInformationModal] = useState(false);
 
   const handleBodySelect = (newKey) => {
     setSelectValue(newKey || "default");
@@ -59,19 +59,19 @@ function Sidebar() {
 
   const EditUser = () => {
     setEditUserModal(true);
-  }
+  };
 
   const closeEditUserModal = () => {
     setEditUserModal(false);
-  }
+  };
 
   const UserInformation = () => {
     setUserInformationModal(true);
-  }
+  };
 
   const closeUserInformationModal = () => {
     setUserInformationModal(false);
-  }
+  };
 
   return (
     <section className="sidebar">
@@ -100,7 +100,7 @@ function Sidebar() {
         </div>
       </div>
 
-        {/* 로그인 모달 */}
+      {/* 로그인 모달 */}
       {showModal && (
         <LoginModal
           onClose={closeModal}
@@ -111,15 +111,16 @@ function Sidebar() {
           }}
           reviewClick={() => {
             closeModal();
-            Review();}}
-
-            EditUserClick={() => {
-              closeModal();
-              EditUser();}}
-
-              UserInformationClick={() => {
-                closeModal();
-                UserInformation();}}
+            Review();
+          }}
+          EditUserClick={() => {
+            closeModal();
+            EditUser();
+          }}
+          UserInformationClick={() => {
+            closeModal();
+            UserInformation();
+          }}
         />
       )}
 
@@ -131,16 +132,16 @@ function Sidebar() {
 
       {/* 유저 에디트 모달 */}
       {showEditUserModal && (
-  <EditUserModal
-    onClose={closeEditUserModal}
-    UserInformationClick={() => {
-      closeEditUserModal();
-      UserInformation();
-    }}
-  />
-)}
+        <EditUserModal
+          onClose={closeEditUserModal}
+          UserInformationClick={() => {
+            closeEditUserModal();
+            UserInformation();
+          }}
+        />
+      )}
 
-     {/* 유저 프로필 모달 */}
+      {/* 유저 프로필 모달 */}
       {showUserInformationModal && (
         <UserInformationModal
           onClose={closeUserInformationModal}

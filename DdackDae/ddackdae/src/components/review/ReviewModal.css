@@ -120,6 +120,7 @@
 .modal-review-imageupload p {
   font-size: 1.2rem;
   color: #b8b8b8;
+  cursor: pointer;
 }
 .modal-review-imageupdate {
   width: 100px;
@@ -137,6 +138,7 @@
 
 .modal-review-imageupdate p {
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .modal-review-buttendiv {
