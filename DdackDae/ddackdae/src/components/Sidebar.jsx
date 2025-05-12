@@ -12,13 +12,17 @@ import { useState } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
 import useSidebarStore from "@/stores/useSidebarStore.js";
+import ReviewModal from "@/components/review/ReviewModal.jsx";
+import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
+import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
 
 function Sidebar() {
-  const { isOpen, toggleSidebar, openSidebar} =
-    useSidebarStore();
+  const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
   const [showModal, setShowModal] = useState(false);
   const [showSignModal, setSignModal] = useState(false);
-
+  const [showReviewModal, setReviewModal] = useState(false);
+  const [showEditUserModal, setEditUserModal] = useState(false);
+  const [showUserInformationModal, setUserInformationModal] = useState(false);
 
   const loginview = () => {
     setShowModal(true);
@@ -36,6 +40,30 @@ function Sidebar() {
     setSignModal(false);
   };
 
+  const Review = () => {
+    setReviewModal(true);
+  };
+
+  const closeReview = () => {
+    setReviewModal(false);
+  };
+
+  const EditUser = () => {
+    setEditUserModal(true);
+  };
+
+  const closeEditUserModal = () => {
+    setEditUserModal(false);
+  };
+
+  const UserInformation = () => {
+    setUserInformationModal(true);
+  };
+
+  const closeUserInformationModal = () => {
+    setUserInformationModal(false);
+  };
+
   return (
     <section className="sidebar">
       <div className="sidebarNav">
@@ -44,11 +72,14 @@ function Sidebar() {
             <img src={logo2} alt="로고" />
           </div>
           <div className="menu">
-            <div className="sidebarIcon" onClick={() => openSidebar('search')}>
+            <div className="sidebarIcon" onClick={() => openSidebar("search")}>
               <FaSearch />
               <span>검색</span>
             </div>
-            <div className="sidebarIcon" onClick={() => openSidebar('favorite')}>
+            <div
+              className="sidebarIcon"
+              onClick={() => openSidebar("favorite")}
+            >
               <FaBookmark />
               <span>찜</span>
             </div>
@@ -72,11 +103,48 @@ function Sidebar() {
             closeModal();
             Singview();
           }}
+          reviewClick={() => {
+            closeModal();
+            Review();
+          }}
+          EditUserClick={() => {
+            closeModal();
+            EditUser();
+          }}
+          UserInformationClick={() => {
+            closeModal();
+            UserInformation();
+          }}
         />
       )}
 
       {/* 회원가입 모달 */}
       {showSignModal && <SignupModal onClose={closeSingModal} />}
+
+      {/* 리뷰 모달 */}
+      {showReviewModal && <ReviewModal onClose={closeReview} />}
+
+      {/* 유저 에디트 모달 */}
+      {showEditUserModal && (
+        <EditUserModal
+          onClose={closeEditUserModal}
+          UserInformationClick={() => {
+            closeEditUserModal();
+            UserInformation();
+          }}
+        />
+      )}
+
+      {/* 유저 프로필 모달 */}
+      {showUserInformationModal && (
+        <UserInformationModal
+          onClose={closeUserInformationModal}
+          UserInformationClick={() => {
+            closeUserInformationModal();
+            EditUser();
+          }}
+        />
+      )}
 
       <div className={`sideOpen ${isOpen ? "open" : "closed"}`}>
         <SideOpen />

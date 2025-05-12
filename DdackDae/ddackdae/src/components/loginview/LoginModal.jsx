@@ -4,9 +4,14 @@ import titlelogo from "@/assets/logo.png";
 import googlelogo from "@/assets/google.png";
 import kakaologo from "@/assets/kakao.png";
 import naverlogo from "@/assets/naver.png";
-import {FaXmark} from "react-icons/fa6";
+import { FaXmark } from "react-icons/fa6";
 
-function LoginModal({ onClose, onSignupClick, reviewClick, UserInformationClick}) {
+function LoginModal({
+  onClose,
+  onSignupClick,
+  reviewClick,
+  UserInformationClick,
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +25,7 @@ function LoginModal({ onClose, onSignupClick, reviewClick, UserInformationClick}
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-window" onClick={(e) => e.stopPropagation()}>
         <button className="modal-login-close" onClick={onClose}>
-           <FaXmark />
+          <FaXmark />
         </button>
         <div className="modal-login-title">
           <h1>

@@ -1,18 +1,26 @@
 import "./SignupModal.css";
 import { useState } from "react";
 import titlelogo from "@/assets/logo.png";
-import defaultimage from "../../assets/defaultimage.png"
+import defaultimage from "../../assets/defaultimage.png";
 import { FaXmark } from "react-icons/fa6";
 
 function SignupModal({ onClose }) {
+  const [userData, setUserData] = useState({
+    username: "",
+    useremail: "",
+    userphonenumber: "",
+    usercarnumber: "",
+    userimage: defaultimage,
+  });
+
   const profileattack = (e) => {
     e.preventDefault();
-    alert(`프사`);
   };
   const signcomplete = () => {
     alert(
       "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  먼저\n╬═╬　퇴근할게요!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
     );
+    console.log(userData);
   };
 
   return (
@@ -37,19 +45,42 @@ function SignupModal({ onClose }) {
               <div className="modal-profile-image-div">
                 <div
                   className="modal-profile-image"
-                  onClick={profileattack}
+                  onClick={() =>
+                    document.getElementById("profile-upload").click()
+                  }
                 >
+                  <input
+                    id="profile-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        const previewURL = URL.createObjectURL(file);
+                        setUserData({ ...userData, userimage: previewURL });
+                      }
+                    }}
+                  />
+
                   <img
-                src={defaultimage}
-                alt="defaultimage"
-                className="modal-defaultimage"
-              />
+                    src={userData.userimage}
+                    alt="defaultimage"
+                    className="modal-defaultimage"
+                  />
                 </div>
               </div>
               <div className="modal-profile-input">
                 <p>닉네임</p>
                 <div className="modal-profile-inputdiv">
-                <input type="text" placeholder="2~8자/문자, 숫자 사용 가능" />
+                  <input
+                    type="text"
+                    placeholder="2~8자/문자, 숫자 사용 가능"
+                    value={userData.username}
+                    onChange={(e) =>
+                      setUserData({ ...userData, username: e.target.value })
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -59,6 +90,10 @@ function SignupModal({ onClose }) {
                 <input
                   type="text"
                   placeholder="8~16자 / 문자,숫자,특수 문자 모두 포함"
+                  value={userData.useremail}
+                  onChange={(e) =>
+                    setUserData({ ...userData, useremail: e.target.value })
+                  }
                 />
               </div>
               <div className="madal-sign-body-div-input">
@@ -66,11 +101,25 @@ function SignupModal({ onClose }) {
                 <input
                   type="text"
                   placeholder="'-'제외, 숫자만 입력해주세요."
+                  value={userData.userphonenumber}
+                  onChange={(e) =>
+                    setUserData({
+                      ...userData,
+                      userphonenumber: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div className="madal-sign-body-div-input">
                 <p>차량번호(선택)</p>
-                <input type="text" placeholder="차량번호 전체 입력해주세요." />
+                <input
+                  type="text"
+                  placeholder="차량번호 전체 입력해주세요."
+                  value={userData.usercarnumber}
+                  onChange={(e) =>
+                    setUserData({ ...userData, usercarnumber: e.target.value })
+                  }
+                />
               </div>
               {/* 드롭박스창 */}
               <div className="modal-sign-select-row">
