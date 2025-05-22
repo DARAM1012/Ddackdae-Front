@@ -1,9 +1,17 @@
+.ParkingLotSection {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 .ParkingLotComponent {
   width: 100%;
   height: auto;
-  gap: 5px;
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .parkingLotImg {
@@ -11,6 +19,7 @@
   height: 200px;
   border: 0.5px solid #b8b8b8;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .parkingLotImg img {
@@ -32,6 +41,7 @@
   color: #0c1844;
   font-size: 2rem;
   font-family: "Pretendard-SemiBold";
+  cursor: pointer;
 }
 .parkingLotInfo_1 p:nth-child(2) {
   color: #b8b8b8;

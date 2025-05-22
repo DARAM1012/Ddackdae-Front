@@ -4,9 +4,14 @@ import titlelogo from "@/assets/logo.png";
 import googlelogo from "@/assets/google.png";
 import kakaologo from "@/assets/kakao.png";
 import naverlogo from "@/assets/naver.png";
-import {FaXmark} from "react-icons/fa6";
+import { FaXmark } from "react-icons/fa6";
 
-function LoginModal({ onClose, onSignupClick }) {
+function LoginModal({
+  onClose,
+  onSignupClick,
+  reviewClick,
+  UserInformationClick,
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +25,7 @@ function LoginModal({ onClose, onSignupClick }) {
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-window" onClick={(e) => e.stopPropagation()}>
         <button className="modal-login-close" onClick={onClose}>
-           <FaXmark />
+          <FaXmark />
         </button>
         <div className="modal-login-title">
           <h1>
@@ -33,7 +38,7 @@ function LoginModal({ onClose, onSignupClick }) {
         <div className="modal-subtext">
           <p>소셜아이디로 1초 만에 로그인 하세요.</p>
         </div>
-        <div className="modal-login-div1">
+        <div className="modal-login-div1" onClick={reviewClick}>
           <img
             src={kakaologo}
             alt="kakaologo"
@@ -49,7 +54,7 @@ function LoginModal({ onClose, onSignupClick }) {
           />
           <p>구글로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div3">
+        <div className="modal-login-div3" onClick={UserInformationClick}>
           <img
             src={naverlogo}
             alt="naverlogo"

@@ -9,6 +9,7 @@ p,
   padding: 0;
   font-size: 10px;
   box-sizing: border-box;
+  cursor:default;
   font-family: 'Pretendard-Regular';
 }
 
@@ -22,4 +23,8 @@ input:focus{
   outline: none;
   background-color: rgba(0,183,179,5%);
   border: 2px solid #00b7b3;
+}
+button{
+  border: none;
+  background:none
 }

@@ -116,5 +116,5 @@ export default function App() {
       <div className="sidebar-wrapper"><Sidebar/></div>
       <div ref={mapRef} id="map" className="map-view"/>
     </div>
-  )
+  );
 }

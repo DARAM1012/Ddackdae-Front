@@ -1,7 +1,3 @@
-.div {
-  padding: 0;
-  margin: 0;
-}
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -15,7 +11,7 @@
   z-index: 1000;
 }
 
-.modal {
+/* .modal {
   background-color: white;
   width: 500px;
   height: 700px;
@@ -23,7 +19,7 @@
   position: relative;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
-}
+} */
 
 .modal-login-title {
   position: absolute;
@@ -105,6 +101,7 @@
 }
 .modal-login-div1 p{
   font-size: 2.3rem;
+  cursor: pointer;
 }
 .modal-login-div2 {
   position: absolute;
@@ -126,6 +123,7 @@
 }
 .modal-login-div2 p{
   font-size: 2.3rem;
+  cursor: pointer;
 }
 .modal-login-div3 {
   position: absolute;
@@ -147,6 +145,7 @@
 }
 .modal-login-div3 p{
   font-size: 2.3rem;
+  cursor: pointer;
 }
 .centered-line-div {
   position: absolute;
@@ -218,6 +217,7 @@
 }
 .login-butten p {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 .signup-butten {
   position: absolute;
@@ -230,4 +230,5 @@
 }
 .signup-butten p {
   font-size: 1.5rem;
+  cursor: pointer;
 }

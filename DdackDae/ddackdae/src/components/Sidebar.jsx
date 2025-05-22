@@ -11,17 +11,18 @@ import SideOpen from "../components/search/SideOpen.jsx";
 import { useState } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
+import useSidebarStore from "@/stores/useSidebarStore.js";
+import ReviewModal from "@/components/review/ReviewModal.jsx";
+import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
+import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
 
 function Sidebar() {
-  const [open, setOpen] = useState(false);
-  const [selectValue, setSelectValue] = useState("default");
+  const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
   const [showModal, setShowModal] = useState(false);
   const [showSignModal, setSignModal] = useState(false);
-
-  const SelectKey = (value) => {
-    setOpen(true);
-    setSelectValue(value);
-  };
+  const [showReviewModal, setReviewModal] = useState(false);
+  const [showEditUserModal, setEditUserModal] = useState(false);
+  const [showUserInformationModal, setUserInformationModal] = useState(false);
 
   const loginview = () => {
     setShowModal(true);
@@ -39,27 +40,54 @@ function Sidebar() {
     setSignModal(false);
   };
 
+  const Review = () => {
+    setReviewModal(true);
+  };
+
+  const closeReview = () => {
+    setReviewModal(false);
+  };
+
+  const EditUser = () => {
+    setEditUserModal(true);
+  };
+
+  const closeEditUserModal = () => {
+    setEditUserModal(false);
+  };
+
+  const UserInformation = () => {
+    setUserInformationModal(true);
+  };
+
+  const closeUserInformationModal = () => {
+    setUserInformationModal(false);
+  };
+
   return (
     <section className="sidebar">
       <div className="sidebarNav">
         <div className="top">
-          <div className="logo" onClick={() => SelectKey("default")}>
+          <div className="logo" onClick={() => toggleSidebar()}>
             <img src={logo2} alt="로고" />
           </div>
           <div className="menu">
-            <div className="icon" onClick={() => SelectKey("search")}>
+            <div className="sidebarIcon" onClick={() => openSidebar("search")}>
               <FaSearch />
               <span>검색</span>
             </div>
-            <div className="icon" onClick={() => SelectKey("favorite")}>
+            <div
+              className="sidebarIcon"
+              onClick={() => openSidebar("favorite")}
+            >
               <FaBookmark />
               <span>찜</span>
             </div>
           </div>
         </div>
 
-        <div className="bottom" onClick={loginview}>
-          <div className="icon">
+        <div className="sidebarBottom" onClick={loginview}>
+          <div className="sidebarIcon">
             <FaUser />
             <span>로그인</span>
           </div>
@@ -75,21 +103,58 @@ function Sidebar() {
             closeModal();
             Singview();
           }}
+          reviewClick={() => {
+            closeModal();
+            Review();
+          }}
+          EditUserClick={() => {
+            closeModal();
+            EditUser();
+          }}
+          UserInformationClick={() => {
+            closeModal();
+            UserInformation();
+          }}
         />
       )}
 
       {/* 회원가입 모달 */}
       {showSignModal && <SignupModal onClose={closeSingModal} />}
 
-      <div className={`sideOpen ${open ? "open" : "closed"}`}>
-        <SideOpen selectValue={selectValue} />
+      {/* 리뷰 모달 */}
+      {showReviewModal && <ReviewModal onClose={closeReview} />}
+
+      {/* 유저 에디트 모달 */}
+      {showEditUserModal && (
+        <EditUserModal
+          onClose={closeEditUserModal}
+          UserInformationClick={() => {
+            closeEditUserModal();
+            UserInformation();
+          }}
+        />
+      )}
+
+      {/* 유저 프로필 모달 */}
+      {showUserInformationModal && (
+        <UserInformationModal
+          onClose={closeUserInformationModal}
+          UserInformationClick={() => {
+            closeUserInformationModal();
+            EditUser();
+          }}
+        />
+      )}
+
+      <div className={`sideOpen ${isOpen ? "open" : "closed"}`}>
+        <SideOpen />
       </div>
       <div
-        className={`SideOpenAndCloseBtnBox ${open && "open"}`}
-        onClick={() => setOpen((o) => !o)}
+        className={`SideOpenAndCloseBtnBox ${isOpen && "open"}`}
+        onClick={() => toggleSidebar()}
       >
-        {!open && <FaChevronRight className="SideOpenAndCloseBtn OpenBtn" />}
-        {open && <FaChevronLeft className="SideOpenAndCloseBtn CloseBtn" />}
+        {!isOpen && <FaChevronRight className="SideOpenAndCloseBtn OpenBtn" />}
+        {isOpen && <FaChevronLeft className="SideOpenAndCloseBtn CloseBtn" />}
       </div>
     </section>
   );

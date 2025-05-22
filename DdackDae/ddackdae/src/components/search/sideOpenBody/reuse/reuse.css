@@ -5,19 +5,21 @@
   text-align: right;
   align-content: center;
   font-size: 1.8rem;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 .notFavorite {
   border-radius: 5px;
   padding: 0.3rem;
   border: 0.5px solid #b8b8b8;
   background-color: #fff;
+  transition: background-color 0.2s ease;
 }
 .favorite {
   border-radius: 5px;
   padding: 0.3rem;
   border: 0.5px solid #00b7b3;
   background-color: #00b7b3;
+  transition: background-color 0.2s ease;
 }
 
 /* RealTimeStateColor */

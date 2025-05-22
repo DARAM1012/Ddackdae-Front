@@ -1,26 +1,25 @@
-import "./SignupModal.css";
+import "./EditUserInformationModal.css";
 import { useState } from "react";
 import titlelogo from "@/assets/logo.png";
-import defaultimage from "../../assets/defaultimage.png";
 import { FaXmark } from "react-icons/fa6";
+import kakaologo from "@/assets/kakao.png";
+import userimage from "@/assets/samp.webp";
 
-function SignupModal({ onClose }) {
+function EditUserModal({ onClose, UserInformationClick }) {
   const [userData, setUserData] = useState({
-    username: "",
-    useremail: "",
-    userphonenumber: "",
-    usercarnumber: "",
-    userimage: defaultimage,
+    username: "사카밤바스피스",
+    useremail: "Bombardiro@kakao.com",
+    userphonenumber: "011-1234-5678",
+    usercarnumber: "123가 5678",
   });
+  const [userImagePreview, setUserImagePreview] = useState(userimage);
 
   const profileattack = (e) => {
     e.preventDefault();
   };
-  const signcomplete = () => {
-    alert(
-      "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  먼저\n╬═╬　퇴근할게요!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
-    );
-    console.log(userData);
+
+  const editcomplete = () => {
+    alert(`트랄라레로 트랄랄라\n🦈👟👟👟`);
   };
 
   return (
@@ -40,35 +39,32 @@ function SignupModal({ onClose }) {
               />
             </h1>
           </div>
-          <div className="modal-subdiv">
+          <div className="modal-edit-div">
             <div className="modal-profile-header-div">
               <div className="modal-profile-image-div">
-                <div
-                  className="modal-profile-image"
-                  onClick={() =>
-                    document.getElementById("profile-upload").click()
-                  }
-                >
-                  <input
-                    id="profile-upload"
-                    type="file"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      if (file) {
-                        const previewURL = URL.createObjectURL(file);
-                        setUserData({ ...userData, userimage: previewURL });
-                      }
-                    }}
-                  />
-
+                <div className="modal-profile-image" onClick={profileattack}>
                   <img
-                    src={userData.userimage}
-                    alt="defaultimage"
-                    className="modal-defaultimage"
+                    src={userImagePreview}
+                    alt="userimage"
+                    className="modal-userimage"
+                    onClick={() =>
+                      document.getElementById("profile-upload").click()
+                    }
                   />
                 </div>
+                <input
+                  id="profile-upload"
+                  type="file"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      const previewURL = URL.createObjectURL(file);
+                      setUserImagePreview(previewURL);
+                    }
+                  }}
+                />
               </div>
               <div className="modal-profile-input">
                 <p>닉네임</p>
@@ -80,6 +76,11 @@ function SignupModal({ onClose }) {
                     onChange={(e) =>
                       setUserData({ ...userData, username: e.target.value })
                     }
+                  />
+                  <img
+                    src={kakaologo}
+                    alt="kakaologo"
+                    className="modal-edit-oauthlogo"
                   />
                 </div>
               </div>
@@ -111,7 +112,7 @@ function SignupModal({ onClose }) {
                 />
               </div>
               <div className="madal-sign-body-div-input">
-                <p>차량번호(선택)</p>
+                <p>차량번호</p>
                 <input
                   type="text"
                   placeholder="차량번호 전체 입력해주세요."
@@ -124,7 +125,7 @@ function SignupModal({ onClose }) {
               {/* 드롭박스창 */}
               <div className="modal-sign-select-row">
                 <div className="madal-sign-body-div-select">
-                  <p>자동차 제조사(선택)</p>
+                  <p>자동차 제조사</p>
                   <select className="modal-sign-dropdown">
                     <option value="" disabled selected>
                       선택하세요
@@ -136,7 +137,7 @@ function SignupModal({ onClose }) {
                 </div>
 
                 <div className="madal-sign-body-div-select">
-                  <p>차량(선택)</p>
+                  <p>차량</p>
                   <select className="modal-sign-dropdown2">
                     <option value="" disabled selected>
                       선택하세요
@@ -150,7 +151,7 @@ function SignupModal({ onClose }) {
 
               <div className="modal-sign-select-row">
                 <div className="madal-sign-body-div-select">
-                  <p>연료타입(선택)</p>
+                  <p>연료타입</p>
                   <select className="modal-sign-dropdown">
                     <option value="" disabled selected>
                       선택하세요
@@ -161,7 +162,7 @@ function SignupModal({ onClose }) {
                 </div>
 
                 <div className="madal-sign-body-div-select">
-                  <p>모델(선택)</p>
+                  <p>모델</p>
                   <select className="modal-sign-dropdown2">
                     <option value="" disabled selected>
                       선택하세요
@@ -172,54 +173,17 @@ function SignupModal({ onClose }) {
                 </div>
               </div>
             </div>
-            {/* 약관동의 div */}
-            <div className="modal-sign-checklist-div">
-              <h4>가입 약관 동의</h4>
-              <ul className="modal-sign-checklist-list">
-                <li className="checklist-item">
-                  <input type="checkbox" />
-                  딱대 이용 약관에 동의합니다.
-                  <span
-                    style={{
-                      color: "(필수)" === "(필수)" ? "#1D7FFF" : "#B8B8B8",
-                    }}
-                  >
-                    (필수)
-                  </span>
-                  <span className="check-detail">상세보기▼</span>
-                </li>
-
-                <li className="checklist-item">
-                  <input type="checkbox" />
-                  개인정보 수집 및 이용에 동의합니다.
-                  <span
-                    style={{
-                      color: "(필수)" === "(필수)" ? "#1D7FFF" : "#B8B8B8",
-                    }}
-                  >
-                    (필수)
-                  </span>
-                  <span className="check-detail">상세보기▼</span>
-                </li>
-
-                <li className="checklist-item">
-                  <input type="checkbox" />
-                  마케팅 활용 및 광고성 정보 수신에 동의합니다.
-                  <span
-                    style={{
-                      color: "(필수)" === "(선택)" ? "#1D7FFF" : "#B8B8B8",
-                    }}
-                  >
-                    (선택)
-                  </span>
-                  <span className="check-detail">상세보기▼</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* 가입완료 버튼 */}
-            <div className="signup-complete-butten" onClick={signcomplete}>
-              <p>가입완료</p>
+            {/* 버튼칸 */}
+            <div className="modal-edit-buttendiv">
+              <div
+                className="modal-edit-butten1"
+                onClick={UserInformationClick}
+              >
+                <p>수정 취소</p>
+              </div>
+              <div className="modal-edit-butten2" onClick={editcomplete}>
+                <p>저장</p>
+              </div>
             </div>
           </div>
         </div>
@@ -228,4 +192,4 @@ function SignupModal({ onClose }) {
   );
 }
 
-export default SignupModal;
+export default EditUserModal;
