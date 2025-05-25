@@ -71,14 +71,13 @@ export default function App() {
 
           // (4) 응답 형태별로 마커 생성
           const newMarkers = list.map((item) => {
+            console.log(item);
             let html, lat, lot, anchor;
-            if (Array.isArray(item)) {
-              // [동명, count, lat, lot]
-              const [dong, count, headLat, headLot] = item;
-              lat = headLat;
-              lot = headLot;
+            if (item.gu || item.dong) {
+              lat = item.avgLat;
+              lot = item.avgLot;
               anchor = new window.naver.maps.Point(18, 18);
-              html = `<div class="cluster-marker">${count}</div>`;
+              html = `<div class="cluster-marker">${item.count}</div>`;
             } else {
               // ParkingLotDto 객체
               lat = item.lat;
