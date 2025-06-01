@@ -1,3 +1,4 @@
+// src/components/Sidebar.jsx
 import "@/components/Sidebar.css";
 import logo2 from "@/assets/logo2.png";
 import {
@@ -7,11 +8,11 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
-import SideOpen from "../components/search/SideOpen.jsx";
+import SideOpen from "@/components/search/SideOpen.jsx";
 import { useState } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
-import useSidebarStore from "@/stores/useSidebarStore.js";
+import useSidebarStore from "@/stores/useSidebarStore";
 import ReviewModal from "@/components/review/ReviewModal.jsx";
 import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
 import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
@@ -24,45 +25,16 @@ function Sidebar() {
   const [showEditUserModal, setEditUserModal] = useState(false);
   const [showUserInformationModal, setUserInformationModal] = useState(false);
 
-  const loginview = () => {
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
-  const Singview = () => {
-    setSignModal(true);
-  };
-
-  const closeSingModal = () => {
-    setSignModal(false);
-  };
-
-  const Review = () => {
-    setReviewModal(true);
-  };
-
-  const closeReview = () => {
-    setReviewModal(false);
-  };
-
-  const EditUser = () => {
-    setEditUserModal(true);
-  };
-
-  const closeEditUserModal = () => {
-    setEditUserModal(false);
-  };
-
-  const UserInformation = () => {
-    setUserInformationModal(true);
-  };
-
-  const closeUserInformationModal = () => {
-    setUserInformationModal(false);
-  };
+  const loginview = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
+  const Singview = () => setSignModal(true);
+  const closeSingModal = () => setSignModal(false);
+  const Review = () => setReviewModal(true);
+  const closeReview = () => setReviewModal(false);
+  const EditUser = () => setEditUserModal(true);
+  const closeEditUserModal = () => setEditUserModal(false);
+  const UserInformation = () => setUserInformationModal(true);
+  const closeUserInformationModal = () => setUserInformationModal(false);
 
   return (
     <section className="sidebar">
@@ -94,12 +66,11 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* 로그인 모달 */}
+      {/* ── 로그인 모달 ───────────────────────────────────── */}
       {showModal && (
         <LoginModal
           onClose={closeModal}
           onSignupClick={() => {
-            console.log("회원가입 클릭됨"); // 확인용 로그
             closeModal();
             Singview();
           }}
@@ -118,13 +89,13 @@ function Sidebar() {
         />
       )}
 
-      {/* 회원가입 모달 */}
+      {/* ── 회원가입 모달 ─────────────────────────────────── */}
       {showSignModal && <SignupModal onClose={closeSingModal} />}
 
-      {/* 리뷰 모달 */}
+      {/* ── 리뷰 모달 ─────────────────────────────────────── */}
       {showReviewModal && <ReviewModal onClose={closeReview} />}
 
-      {/* 유저 에디트 모달 */}
+      {/* ── 유저 에디트 모달 ───────────────────────────────── */}
       {showEditUserModal && (
         <EditUserModal
           onClose={closeEditUserModal}
@@ -135,7 +106,7 @@ function Sidebar() {
         />
       )}
 
-      {/* 유저 프로필 모달 */}
+      {/* ── 유저 프로필 모달 ───────────────────────────────── */}
       {showUserInformationModal && (
         <UserInformationModal
           onClose={closeUserInformationModal}
@@ -146,6 +117,7 @@ function Sidebar() {
         />
       )}
 
+      {/* ── SideOpen 컴포넌트를 열고 닫는다 ─────────────────────────── */}
       <div className={`sideOpen ${isOpen ? "open" : "closed"}`}>
         <SideOpen />
       </div>
