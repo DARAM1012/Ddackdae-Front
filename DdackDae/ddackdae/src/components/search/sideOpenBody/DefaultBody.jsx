@@ -5,6 +5,7 @@ import FavoriteButton from "./reuse/FavoriteButton.jsx";
 import RealTimeStateColor from "./reuse/RealTimeStateColor.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
 import { useEffect, useState } from "react";
+const BASE_URL = import.meta.env.VITE_API_BASE;
 
 export default function DefaultBody({ params }) {
   const { setSelectedKey } = useSidebarStore();
@@ -45,7 +46,7 @@ export default function DefaultBody({ params }) {
     };
 
     // **중요**: 개발 중에는 "/api/v1/nearby"로 호출해야 Vite proxy를 탄다
-    fetch("/api/v1/nearby", {
+    fetch(`${BASE_URL}/api/v1/nearby`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -90,7 +91,7 @@ export default function DefaultBody({ params }) {
     <section className="NearbySection">
       {list.length === 0 && <p style={{ textAlign: "center" }}>불러오는 중…</p>}
       {list.map((lot, idx) => (
-        <article  key={lot.plId ?? `lot-${idx}`} className="ParkingLotComponent">
+        <article key={lot.plId ?? `lot-${idx}`} className="ParkingLotComponent">
           {/* 5-1) 실시간 상태 표시용 컬러 도형 */}
           <RealTimeStateColor />
 
@@ -99,10 +100,7 @@ export default function DefaultBody({ params }) {
             className="parkingLotImg"
             onClick={() => setSelectedKey("details")}
           >
-            <img
-              src={seoulPark}
-              alt="parkingLot"
-            />
+            <img src={seoulPark} alt="parkingLot" />
           </div>
 
           {/* 5-3) 주차장 정보: 이름 / 종류 */}
@@ -114,7 +112,8 @@ export default function DefaultBody({ params }) {
           {/* 5-4) 주차장 정보: 평일 운영시간 / 즐겨찾기 버튼 */}
           <div className="parkingLotInfo_2">
             <p>
-              운영시간 {formatHHmm (lot.wdOperBgngTm)} ~ {formatHHmm (lot.wdOperEndTm)}
+              운영시간 {formatHHmm(lot.wdOperBgngTm)} ~{" "}
+              {formatHHmm(lot.wdOperEndTm)}
             </p>
             <FavoriteButton />
           </div>
