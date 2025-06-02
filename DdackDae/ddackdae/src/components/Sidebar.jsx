@@ -12,7 +12,6 @@ import { useState } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
 import useSidebarStore from "@/stores/useSidebarStore.js";
-import ReviewModal from "@/components/review/ReviewModal.jsx";
 import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
 import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
 
@@ -20,7 +19,6 @@ function Sidebar() {
   const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
   const [showModal, setShowModal] = useState(false);
   const [showSignModal, setSignModal] = useState(false);
-  const [showReviewModal, setReviewModal] = useState(false);
   const [showEditUserModal, setEditUserModal] = useState(false);
   const [showUserInformationModal, setUserInformationModal] = useState(false);
 
@@ -38,14 +36,6 @@ function Sidebar() {
 
   const closeSingModal = () => {
     setSignModal(false);
-  };
-
-  const Review = () => {
-    setReviewModal(true);
-  };
-
-  const closeReview = () => {
-    setReviewModal(false);
   };
 
   const EditUser = () => {
@@ -103,10 +93,6 @@ function Sidebar() {
             closeModal();
             Singview();
           }}
-          reviewClick={() => {
-            closeModal();
-            Review();
-          }}
           EditUserClick={() => {
             closeModal();
             EditUser();
@@ -120,9 +106,6 @@ function Sidebar() {
 
       {/* 회원가입 모달 */}
       {showSignModal && <SignupModal onClose={closeSingModal} />}
-
-      {/* 리뷰 모달 */}
-      {showReviewModal && <ReviewModal onClose={closeReview} />}
 
       {/* 유저 에디트 모달 */}
       {showEditUserModal && (
