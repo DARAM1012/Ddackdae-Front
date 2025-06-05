@@ -16,9 +16,12 @@ import useSidebarStore from "@/stores/useSidebarStore";
 import ReviewModal from "@/components/review/ReviewModal.jsx";
 import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
 import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
+import useUserLoginStore from "@/stores/UserLoginStore";
 
 function Sidebar() {
   const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
+  const isLoggedIn = useUserLoginStore((state) => state.isLoggedIn);
+  const logout = useUserLoginStore((state) => state.logout);
   const [showModal, setShowModal] = useState(false);
   const [showSignModal, setSignModal] = useState(false);
   const [showReviewModal, setReviewModal] = useState(false);
@@ -58,11 +61,22 @@ function Sidebar() {
           </div>
         </div>
 
-        <div className="sidebarBottom" onClick={loginview}>
-          <div className="sidebarIcon">
-            <FaUser />
-            <span>로그인</span>
-          </div>
+        <div className="sidebarBottom">
+         <div
+  className="sidebarIcon"
+  onClick={() => {
+    if (isLoggedIn) {
+      localStorage.removeItem("localToken");
+      logout(); // 전역 로그인 상태 초기화
+      alert("로그아웃 ㅎㅎ");
+    } else {
+      loginview(); // 로그인 모달 열기
+    }
+  }}
+>
+  <FaUser />
+  <span>{isLoggedIn ? "로그아웃" : "로그인"}</span>
+</div>
         </div>
       </div>
 

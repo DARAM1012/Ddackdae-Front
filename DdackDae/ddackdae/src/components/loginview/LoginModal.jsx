@@ -5,6 +5,8 @@ import googlelogo from "@/assets/google.png";
 import kakaologo from "@/assets/kakao.png";
 import naverlogo from "@/assets/naver.png";
 import { FaXmark } from "react-icons/fa6";
+import { LocalloginPostApi } from "@/api/LoginApi";
+import useUserLoginStore from "@/stores/UserLoginStore";
 
 function LoginModal({
   onClose,
@@ -15,10 +17,30 @@ function LoginModal({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const setLogin = useUserLoginStore((state) => state.setLogin);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`로그인 시도\n\nemail : ${email}\n비밀번호 : ${password}`);
-    // onClose()
+   
+     if(!email || !password) {
+      alert("이메일과 비밀번호를 입력해주세요.");
+      return;
+    }
+
+    try {
+      const data = { email, password };
+      const res = await LocalloginPostApi(data);
+      console.log(res); // 토큰 등 응답 확인
+      const token = localStorage.setItem("localToken", res.token);
+      setLogin(token);
+      alert(
+      "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  로그인\n╬═╬　성공!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
+    );
+      onClose();
+    } catch (error) {
+      alert("로그인 실패: " + (error.response?.data?.message || error.message));
+    }
+
   };
 
   return (
