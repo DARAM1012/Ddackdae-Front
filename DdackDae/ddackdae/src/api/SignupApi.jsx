@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const SignupPostApi = async (userData, imageFile) => {
   try {
     const formData = new FormData();
@@ -9,7 +11,7 @@ export const SignupPostApi = async (userData, imageFile) => {
       formData.append("profileImage", imageFile);
     }
 
-    const res = await axios.post("http://34.47.87.26/api/v1/signup", formData, {
+    const res = await axios.post(`${BASE_URL}/api/v1/signup`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

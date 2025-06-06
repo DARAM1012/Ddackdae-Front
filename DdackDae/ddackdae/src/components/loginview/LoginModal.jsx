@@ -33,12 +33,12 @@ function LoginModal({
       console.log(res); // 토큰 등 응답 확인
       const token = localStorage.setItem("localToken", res.token);
       setLogin(token);
-      alert(
-      "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  로그인\n╬═╬　성공!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
-    );
+    //   alert(
+    //   "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  로그인\n╬═╬　성공!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
+    // );
       onClose();
     } catch (error) {
-      alert("로그인 실패: " + (error.response?.data?.message || error.message));
+      alert("존재하지 않는 계정 입니다.");
     }
 
   };
@@ -76,7 +76,7 @@ function LoginModal({
           />
           <p>구글로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div3" onClick={UserInformationClick}>
+        <div className="modal-login-div3">
           <img
             src={naverlogo}
             alt="naverlogo"
@@ -89,7 +89,7 @@ function LoginModal({
           <span className="centered-line-div-text">또는</span>
         </div>
         <div className="form-div">
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <input
               className="form-div-input1"
               type="text"
@@ -104,6 +104,7 @@ function LoginModal({
               onChange={(e) => setPassword(e.target.value)}
               placeholder="비밀번호"
             />
+            <button type="submit" style={{ display: "none" }}>submit</button> 
           </form>
         </div>
         <div className="login-butten" onClick={handleSubmit}>

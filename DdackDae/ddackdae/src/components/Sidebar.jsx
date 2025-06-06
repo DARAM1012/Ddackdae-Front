@@ -18,6 +18,8 @@ import EditUserModal from "@/components/edituserinformation/EditUserInformationM
 import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
 import useUserLoginStore from "@/stores/UserLoginStore";
 import { LoginCustomerGetApi } from "../api/LoginApi.jsx";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function Sidebar() {
   const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
@@ -42,7 +44,7 @@ function Sidebar() {
   const closeUserInformationModal = () => setUserInformationModal(false);
 
   useEffect(() => {
-    const fetchUserInfo = async () => {
+    const GetUserImage = async () => {
       try {
         const token = localStorage.getItem("localToken");
         if (isLoggedIn && token) {
@@ -54,7 +56,7 @@ function Sidebar() {
       }
     };
 
-    fetchUserInfo();
+    GetUserImage();
   }, [isLoggedIn]);
 
   return (
@@ -81,32 +83,51 @@ function Sidebar() {
 
         <div className="sidebarBottom">
          {/* 로그인, 로그아웃 버튼 */}
-   <div
-  className="sidebarIcon"
-  onClick={() => {
-    if (isLoggedIn) {
-      localStorage.removeItem("localToken");
-      logout();
-      alert("로그아웃 ㅎㅎ");
-    } else {
-      loginview();
-    }
-  }}
->
-  {/* 로그인 상태면 원형 프로필 이미지 div, 아니면 아이콘 */}
+<div className="sidebarIcon">
+  {/* 로그인 상태 */}
   {isLoggedIn ? (
-    <div
-      className="userCircle"
-      style={{
-        backgroundImage: `url(${userProfileImage || ""})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    />
+    <>
+      <div
+        className="userCircle"
+        onClick={UserInformation}
+        style={{
+           backgroundImage: `url(${userProfileImage || ""})`
+        }}
+      />
+      <span
+        onClick={() => {
+          confirmAlert({
+            title: "로그아웃 체크",
+            message: "로그아웃 활거임??",
+            buttons: [
+              {
+                label: "네",
+                onClick: () => {
+                  localStorage.removeItem("localToken");
+                  logout();
+                },
+              },
+              {
+                label: "아니요",
+                onClick: () => {},
+              },
+            ],
+          });
+        }}
+      >
+        로그아웃
+      </span>
+    </>
   ) : (
-    <FaUser />
+    <div className="sidebarIconlogindiv" onClick={loginview}>
+      <div>
+        <FaUser />
+      </div>
+      <span>
+        로그인
+      </span>
+    </div>
   )}
-  <span>{isLoggedIn ? "로그아웃" : "로그인"}</span>
 </div>
         </div>
       </div>
