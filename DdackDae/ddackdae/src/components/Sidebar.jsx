@@ -9,7 +9,7 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import SideOpen from "@/components/search/SideOpen.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LoginModal from "@/components/loginview/LoginModal.jsx";
 import SignupModal from "@/components/signupview/SignupModal.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
@@ -17,6 +17,7 @@ import ReviewModal from "@/components/review/ReviewModal.jsx";
 import EditUserModal from "@/components/edituserinformation/EditUserInformationModal.jsx";
 import UserInformationModal from "@/components/userinformation/UserInformationModal.jsx";
 import useUserLoginStore from "@/stores/UserLoginStore";
+import { LoginCustomerGetApi } from "../api/LoginApi.jsx";
 
 function Sidebar() {
   const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
@@ -27,6 +28,7 @@ function Sidebar() {
   const [showReviewModal, setReviewModal] = useState(false);
   const [showEditUserModal, setEditUserModal] = useState(false);
   const [showUserInformationModal, setUserInformationModal] = useState(false);
+  const [userProfileImage, setUserProfileImage] = useState(null);
 
   const loginview = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
@@ -38,6 +40,22 @@ function Sidebar() {
   const closeEditUserModal = () => setEditUserModal(false);
   const UserInformation = () => setUserInformationModal(true);
   const closeUserInformationModal = () => setUserInformationModal(false);
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const token = localStorage.getItem("localToken");
+        if (isLoggedIn && token) {
+          const data = await LoginCustomerGetApi(token);
+          setUserProfileImage(data.profileImageUrl); // 프로필 이미지 설정
+        }
+      } catch (err) {
+        console.error("유저 정보 불러오기 실패:", err);
+      }
+    };
+
+    fetchUserInfo();
+  }, [isLoggedIn]);
 
   return (
     <section className="sidebar">
@@ -62,19 +80,32 @@ function Sidebar() {
         </div>
 
         <div className="sidebarBottom">
-         <div
+         {/* 로그인, 로그아웃 버튼 */}
+   <div
   className="sidebarIcon"
   onClick={() => {
     if (isLoggedIn) {
       localStorage.removeItem("localToken");
-      logout(); // 전역 로그인 상태 초기화
+      logout();
       alert("로그아웃 ㅎㅎ");
     } else {
-      loginview(); // 로그인 모달 열기
+      loginview();
     }
   }}
 >
-  <FaUser />
+  {/* 로그인 상태면 원형 프로필 이미지 div, 아니면 아이콘 */}
+  {isLoggedIn ? (
+    <div
+      className="userCircle"
+      style={{
+        backgroundImage: `url(${userProfileImage || ""})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    />
+  ) : (
+    <FaUser />
+  )}
   <span>{isLoggedIn ? "로그아웃" : "로그인"}</span>
 </div>
         </div>
