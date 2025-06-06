@@ -118,6 +118,14 @@
   width: 49.33px;
   height: 37px;
 }
+.modal-preview-image {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 10; /* default image 위에 올라오도록 */
+}
 
 .modal-profile-input p {
   margin: 0; /* p 태그의 기본 마진을 제거 */

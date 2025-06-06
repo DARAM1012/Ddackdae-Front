@@ -22,10 +22,13 @@ function SignupModal({ onClose }) {
     carModel: "",
   });
 
-  // 미리보기 이미지
+  //디폴트 이미지
   const [userimg, setUserImg] = useState({
     userimage: defaultimage,
   });
+
+  // 미리보기 이미지
+  const [previewImg, setPreviewImg] = useState(null);
 
   // 회원가입 이미지
   const [imageFile, setImageFile] = useState(null);
@@ -141,33 +144,38 @@ const phoneRegex = /^[0-9]+$/;
           <div className="modal-subdiv">
             <div className="modal-profile-header-div">
               <div className="modal-profile-image-div">
-                <div
-                  className="modal-profile-image"
-                  onClick={() =>
-                    document.getElementById("profile-upload").click()
-                  }
-                >
-                  <input
-                    id="profile-upload"
-                    type="file"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      if (file) {
-                        const previewURL = URL.createObjectURL(file);
-                        setUserImg({ ...userData, userimage: previewURL });
-                        setImageFile(file);
-                      }
-                    }}
-                  />
+            <div
+  className="modal-profile-image"
+  onClick={() => document.getElementById("profile-upload").click()}
+>
+  <input
+    id="profile-upload"
+    type="file"
+    accept="image/*"
+    style={{ display: "none" }}
+    onChange={(e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const previewURL = URL.createObjectURL(file);
+    setPreviewImg(previewURL);      // 여기에만 미리보기 저장
+    setImageFile(file);             // 실제 전송용 파일도 저장
+  }
+}}
+  />
 
-                  <img
-                    src={userimg.userimage}
-                    alt="defaultimage"
-                    className="modal-defaultimage"
-                  />
-                </div>
+  <img
+    src={userimg.userimage}
+    alt="defaultimage"
+    className="modal-defaultimage"
+  />
+  {previewImg && (
+    <img
+      src={previewImg}
+      alt="preview"
+      className="modal-preview-image"
+    />
+  )}
+</div>
               </div>
               <div className="modal-profile-input">
                 <p>닉네임</p>
