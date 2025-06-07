@@ -5,6 +5,8 @@ import googlelogo from "@/assets/google.png";
 import kakaologo from "@/assets/kakao.png";
 import naverlogo from "@/assets/naver.png";
 import { FaXmark } from "react-icons/fa6";
+import { LocalloginPostApi } from "@/api/LoginApi";
+import useUserLoginStore from "@/stores/UserLoginStore";
 
 function LoginModal({
   onClose,
@@ -15,10 +17,30 @@ function LoginModal({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const setLogin = useUserLoginStore((state) => state.setLogin);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`로그인 시도\n\nemail : ${email}\n비밀번호 : ${password}`);
-    // onClose()
+   
+     if(!email || !password) {
+      alert("이메일과 비밀번호를 입력해주세요.");
+      return;
+    }
+
+    try {
+      const data = { email, password };
+      const res = await LocalloginPostApi(data);
+      console.log(res); // 토큰 등 응답 확인
+      const token = localStorage.setItem("localToken", res.token);
+      setLogin(token);
+    //   alert(
+    //   "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  로그인\n╬═╬　성공!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
+    // );
+      onClose();
+    } catch (error) {
+      alert("존재하지 않는 계정 입니다.");
+    }
+
   };
 
   return (
@@ -54,7 +76,7 @@ function LoginModal({
           />
           <p>구글로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div3" onClick={UserInformationClick}>
+        <div className="modal-login-div3">
           <img
             src={naverlogo}
             alt="naverlogo"
@@ -67,7 +89,7 @@ function LoginModal({
           <span className="centered-line-div-text">또는</span>
         </div>
         <div className="form-div">
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <input
               className="form-div-input1"
               type="text"
@@ -82,6 +104,7 @@ function LoginModal({
               onChange={(e) => setPassword(e.target.value)}
               placeholder="비밀번호"
             />
+            <button type="submit" style={{ display: "none" }}>submit</button> 
           </form>
         </div>
         <div className="login-butten" onClick={handleSubmit}>
