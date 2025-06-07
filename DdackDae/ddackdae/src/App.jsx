@@ -4,7 +4,7 @@ import Sidebar from "@/components/Sidebar.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
 import "./App.css";
 
-const BASE_URL = import.meta.env.VITE_API_BASE;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // 예) "http://localhost:8080" 혹은 "http://34.47.87.26"
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
     script.async = true;
     script.onload = () => {
       const naverMap = new window.naver.maps.Map(mapRef.current, {
-        center: new window.naver.maps.LatLng(37.5665, 126.9780),
+        center: new window.naver.maps.LatLng(37.5665, 126.978),
         zoom: 14,
         zoomControl: true,
         zoomControlOptions: {
