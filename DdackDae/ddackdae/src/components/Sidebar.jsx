@@ -19,6 +19,7 @@ import useUserLoginStore from "@/stores/UserLoginStore";
 import { LoginCustomerGetApi } from "../api/LoginApi.jsx";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import useFavoriteStore from "@/stores/useFavoriteStore.js";
 
 function Sidebar() {
   const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
@@ -29,6 +30,7 @@ function Sidebar() {
   const [showEditUserModal, setEditUserModal] = useState(false);
   const [showUserInformationModal, setUserInformationModal] = useState(false);
   const [userProfileImage, setUserProfileImage] = useState(null);
+  const { setFavoritesListDelete } = useFavoriteStore();
 
   const loginview = () => {
     setShowModal(true);
@@ -61,7 +63,6 @@ function Sidebar() {
   const closeUserInformationModal = () => {
     setUserInformationModal(false);
   };
-
   useEffect(() => {
     const GetUserImage = async () => {
       try {
@@ -101,53 +102,52 @@ function Sidebar() {
         </div>
 
         <div className="sidebarBottom">
-         {/* 로그인, 로그아웃 버튼 */}
-<div className="sidebarIcon">
-  {/* 로그인 상태 */}
-  {isLoggedIn ? (
-    <>
-      <div
-        className="userCircle"
-        onClick={UserInformation}
-        style={{
-           backgroundImage: `url(${userProfileImage || ""})`
-        }}
-      />
-      <span
-        onClick={() => {
-          confirmAlert({
-            title: "로그아웃 체크",
-            message: "로그아웃 활거임??",
-            buttons: [
-              {
-                label: "네",
-                onClick: () => {
-                  localStorage.removeItem("localToken");
-                  logout();
-                },
-              },
-              {
-                label: "아니요",
-                onClick: () => {},
-              },
-            ],
-          });
-        }}
-      >
-        로그아웃
-      </span>
-    </>
-  ) : (
-    <div className="sidebarIconlogindiv" onClick={loginview}>
-      <div>
-        <FaUser />
-      </div>
-      <span>
-        로그인
-      </span>
-    </div>
-  )}
-</div>
+          {/* 로그인, 로그아웃 버튼 */}
+          <div className="sidebarIcon">
+            {/* 로그인 상태 */}
+            {isLoggedIn ? (
+              <>
+                <div
+                  className="userCircle"
+                  onClick={UserInformation}
+                  style={{
+                    backgroundImage: `url(${userProfileImage || ""})`,
+                  }}
+                />
+                <span
+                  onClick={() => {
+                    confirmAlert({
+                      title: "로그아웃 체크",
+                      message: "로그아웃 활거임??",
+                      buttons: [
+                        {
+                          label: "네",
+                          onClick: () => {
+                            setFavoritesListDelete();
+                            localStorage.removeItem("localToken");
+                            logout();
+                          },
+                        },
+                        {
+                          label: "아니요",
+                          onClick: () => {},
+                        },
+                      ],
+                    });
+                  }}
+                >
+                  로그아웃
+                </span>
+              </>
+            ) : (
+              <div className="sidebarIconlogindiv" onClick={loginview}>
+                <div>
+                  <FaUser />
+                </div>
+                <span>로그인</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

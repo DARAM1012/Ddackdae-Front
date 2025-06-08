@@ -115,7 +115,7 @@ export default function DefaultBody({ params }) {
               운영시간 {formatHHmm(lot.wdOperBgngTm)} ~{" "}
               {formatHHmm(lot.wdOperEndTm)}
             </p>
-            <FavoriteButton />
+            <FavoriteButton parkingLotId={lot.id}/>
           </div>
         </article>
       ))}
