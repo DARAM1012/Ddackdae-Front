@@ -5,7 +5,7 @@ import FavoriteButton from "./reuse/FavoriteButton.jsx";
 import RealTimeStateColor from "./reuse/RealTimeStateColor.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
 import { useEffect, useState } from "react";
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_BASE;
 
 export default function DefaultBody({ params }) {
   const { setSelectedKey } = useSidebarStore();
@@ -115,7 +115,7 @@ export default function DefaultBody({ params }) {
               운영시간 {formatHHmm(lot.wdOperBgngTm)} ~{" "}
               {formatHHmm(lot.wdOperEndTm)}
             </p>
-            <FavoriteButton parkingLotId={lot.id}/>
+            <FavoriteButton parkingLotId={lot.id} />
           </div>
         </article>
       ))}

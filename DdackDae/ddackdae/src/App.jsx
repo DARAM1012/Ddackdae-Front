@@ -4,7 +4,7 @@ import Sidebar from "@/components/Sidebar.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
 import "./App.css";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_BASE;
 // 예) "http://localhost:8080" 혹은 "http://34.47.87.26"
 
 export default function App() {
