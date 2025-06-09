@@ -5,7 +5,7 @@ import FavoriteButton from "./reuse/FavoriteButton.jsx";
 import RealTimeStateColor from "./reuse/RealTimeStateColor.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
 import { useEffect, useState } from "react";
-const BASE_URL = import.meta.env.VITE_API_BASE;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function DefaultBody({ params }) {
   const { setSelectedKey } = useSidebarStore();
