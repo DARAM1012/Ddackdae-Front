@@ -100,7 +100,7 @@
   cursor: pointer;
 }
 .modal-login-div1 p{
-  font-size: 2.3rem;
+  /* font-size: 1.9rem; */
   cursor: pointer;
 }
 .modal-login-div2 {
@@ -122,7 +122,7 @@
   cursor: pointer;
 }
 .modal-login-div2 p{
-  font-size: 2.3rem;
+  /* font-size: 2.3rem; */
   cursor: pointer;
 }
 .modal-login-div3 {
@@ -144,7 +144,7 @@
   cursor: pointer;
 }
 .modal-login-div3 p{
-  font-size: 2.3rem;
+  /* font-size: 2.3rem; */
   cursor: pointer;
 }
 .centered-line-div {
@@ -155,6 +155,9 @@
   display: flex;
   align-items: center; /* 텍스트와 선을 세로로 정렬 */
   width: 400px; /* 부모 div가 충분한 너비를 가지도록 설정 */
+}
+.LoginFontSize p{
+  font-size: 1.9rem;
 }
 
 .centered-line-div::before,

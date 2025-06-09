@@ -29,10 +29,6 @@ function ParkingLotDetails() {
     alert("복사되었습니다.");
   };
 
-  // 리뷰작성하기 버튼 클릭 이벤트
-  const WriteReview = () => {
-    alert("리뷰작성하기 모달 연결해야지 얼른");
-  };
 
   return (
     // 한개의 주차장 자세한 정보

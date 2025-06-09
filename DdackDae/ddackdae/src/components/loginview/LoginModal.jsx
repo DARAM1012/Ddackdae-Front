@@ -7,8 +7,8 @@ import naverlogo from "@/assets/naver.png";
 import { FaXmark } from "react-icons/fa6";
 import { LocalloginPostApi } from "@/api/LoginApi";
 import useUserLoginStore from "@/stores/UserLoginStore";
-import { FavoritesApi } from "../../api/FavoritesApi";
-import useFavoriteStore from "../../stores/useFavoriteStore";
+import { FavoritesApi } from "@/api/FavoritesApi";
+import useFavoriteStore from "@/stores/useFavoriteStore";
 
 function LoginModal({
   onClose,
@@ -64,7 +64,7 @@ function LoginModal({
         <div className="modal-subtext">
           <p>소셜아이디로 1초 만에 로그인 하세요.</p>
         </div>
-        <div className="modal-login-div1" onClick={reviewClick}>
+        <div className="modal-login-div1 LoginFontSize" onClick={reviewClick}>
           <img
             src={kakaologo}
             alt="kakaologo"
@@ -72,7 +72,7 @@ function LoginModal({
           />
           <p>카카오로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div2">
+        <div className="modal-login-div2 LoginFontSize">
           <img
             src={googlelogo}
             alt="googlelogo"
@@ -80,7 +80,7 @@ function LoginModal({
           />
           <p>구글로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div3">
+        <div className="modal-login-div3 LoginFontSize">
           <img
             src={naverlogo}
             alt="naverlogo"
