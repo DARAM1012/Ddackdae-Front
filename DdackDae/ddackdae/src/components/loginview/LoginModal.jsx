@@ -41,9 +41,6 @@ function LoginModal({
       console.log(res); // 토큰 등 응답 확인
       const token = localStorage.setItem("localToken", res.token);
       await setLogin(token);
-      //   alert(
-      //   "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  로그인\n╬═╬　성공!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
-      // );
       const listUpdate = await FavoritesApi();
       setFavoritesList(listUpdate);
       onClose();
