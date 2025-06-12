@@ -24,7 +24,7 @@ function LoginModal({
 
   const handleKakaoLogin = () => {
   // 카카오 로그인 URL로 리다이렉트
-  window.location.href = "http://ddak-dae.kro.kr/oauth2/authorization/kakao";
+  window.location.href = "http://ddakdae-backend.kro.kr/oauth2/authorization/kakao";
 };
 
   const handleSubmit = async (e) => {
