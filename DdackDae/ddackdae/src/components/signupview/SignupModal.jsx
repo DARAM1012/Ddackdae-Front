@@ -70,7 +70,7 @@ function SignupModal({ onClose }) {
   ];
 
   const carModel = [
-    { label: "선택하세요", value: "", disabled: true },
+    // { label: "선택하세요", value: "", disabled: true },
     { label: "경차", value: "경차" },
     { label: "소형차", value: "소형차" },
     { label: "준형차", value: "준형차" },
