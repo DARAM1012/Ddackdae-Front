@@ -25,7 +25,7 @@ export default function App() {
     script.async = true;
     script.onload = () => {
       const naverMap = new window.naver.maps.Map(mapRef.current, {
-        center: new window.naver.maps.LatLng(37.5665, 126.9780),
+        center: new window.naver.maps.LatLng(37.5665, 126.978),
         zoom: 14,
         zoomControl: true,
         zoomControlOptions: {

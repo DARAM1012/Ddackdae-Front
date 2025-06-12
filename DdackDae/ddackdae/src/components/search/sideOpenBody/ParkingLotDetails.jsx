@@ -14,19 +14,21 @@ import {
 } from "react-icons/fa";
 import { FaArrowUpRightFromSquare, FaLocationDot } from "react-icons/fa6";
 import { useState } from "react";
+import ReviewModal from "@/components/review/ReviewModal.jsx";
 
 function ParkingLotDetails() {
   const [favoriteState, setFavoriteState] = useState(false);
+  const [showReviewModal, setReviewModal] = useState(false);
+
+  const closeReview = () => {
+    setReviewModal(false);
+  };
 
   // 공유하기 버튼 클릭 이벤트
   const ShareModal = () => {
     alert("복사되었습니다.");
   };
 
-  // 리뷰작성하기 버튼 클릭 이벤트
-  const WriteReview = () => {
-    alert("리뷰작성하기 모달 연결해야지 얼른");
-  };
 
   return (
     // 한개의 주차장 자세한 정보
@@ -45,6 +47,7 @@ function ParkingLotDetails() {
           <p>영업중 | 20:00에 영업 종료</p>
         </div>
       </article>
+
       {/* 중간. 찜, 거리뷰, 공유 부분 */}
       <article className="details3Buttons">
         <div
@@ -70,6 +73,7 @@ function ParkingLotDetails() {
           <p>공유</p>
         </div>
       </article>
+
       {/* 중간. 주차장 상세정보 부분 */}
       <article className="detailsInfo">
         <ul className="details-list">
@@ -120,6 +124,7 @@ function ParkingLotDetails() {
           </li>
         </ul>
       </article>
+
       {/* 하단. 주차장 리뷰 부분 */}
       <article className="detailsReview">
         <div className="detailsReviewTitle">
@@ -133,7 +138,7 @@ function ParkingLotDetails() {
           <div
             className="WriteReview"
             onClick={() => {
-              WriteReview();
+              setReviewModal(true);
             }}
           >
             <span>
@@ -183,6 +188,9 @@ function ParkingLotDetails() {
           <p className="reviewContents">주차간격 넓고 좋아요. 너무 잠오네요</p>
         </div>
       </article>
+
+      {/* 중앙 리뷰 작성 모달 */}
+      {showReviewModal && <ReviewModal onClose={closeReview} />}
     </section>
   );
 }

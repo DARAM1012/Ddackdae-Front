@@ -8,14 +8,14 @@ const useUserLoginStore = create((set) => ({
       isLoggedIn: true,
       token: token,
     })),
-  logout: () =>
-    set(() => {
-      localStorage.removeItem("localToken");
-      return {
-        isLoggedIn: false,
-        token: "",
-      };
-    }),
+    logout: () =>
+      set(() => {
+        localStorage.removeItem("localToken");
+        return {
+          isLoggedIn: false,
+          token: "",
+        };
+      }),
 }));
 
 export default useUserLoginStore;

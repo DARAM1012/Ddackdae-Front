@@ -7,6 +7,8 @@ import naverlogo from "@/assets/naver.png";
 import { FaXmark } from "react-icons/fa6";
 import { LocalloginPostApi } from "@/api/LoginApi";
 import useUserLoginStore from "@/stores/UserLoginStore";
+import { FavoritesApi } from "@/api/FavoritesApi";
+import useFavoriteStore from "@/stores/useFavoriteStore";
 
 function LoginModal({
   onClose,
@@ -16,6 +18,7 @@ function LoginModal({
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setFavoritesList } = useFavoriteStore();
 
   const setLogin = useUserLoginStore((state) => state.setLogin);
 
@@ -26,8 +29,8 @@ function LoginModal({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
-     if(!email || !password) {
+
+    if (!email || !password) {
       alert("이메일과 비밀번호를 입력해주세요.");
       return;
     }
@@ -37,15 +40,16 @@ function LoginModal({
       const res = await LocalloginPostApi(data);
       console.log(res); // 토큰 등 응답 확인
       const token = localStorage.setItem("localToken", res.token);
-      setLogin(token);
-    //   alert(
-    //   "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  로그인\n╬═╬　성공!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
-    // );
+      await setLogin(token);
+      //   alert(
+      //   "╬═╬\n╬═╬\n╬═╬\n╬═╬\n╬═╬  로그인\n╬═╬　성공!\n╬═╬\n╬═╬　　∧__∧\n╬═╬　┗(･ω･｀)┛\n╬═╬　　┏ ┛\n"
+      // );
+      const listUpdate = await FavoritesApi();
+      setFavoritesList(listUpdate);
       onClose();
     } catch (error) {
       alert("존재하지 않는 계정 입니다.");
     }
-
   };
 
   return (
@@ -73,7 +77,7 @@ function LoginModal({
           />
           <p>카카오로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div2">
+        <div className="modal-login-div2 LoginFontSize">
           <img
             src={googlelogo}
             alt="googlelogo"
@@ -81,7 +85,7 @@ function LoginModal({
           />
           <p>구글로 로그인/회원가입</p>
         </div>
-        <div className="modal-login-div3">
+        <div className="modal-login-div3 LoginFontSize">
           <img
             src={naverlogo}
             alt="naverlogo"
@@ -109,7 +113,9 @@ function LoginModal({
               onChange={(e) => setPassword(e.target.value)}
               placeholder="비밀번호"
             />
-            <button type="submit" style={{ display: "none" }}>submit</button> 
+            <button type="submit" style={{ display: "none" }}>
+              submit
+            </button>
           </form>
         </div>
         <div className="login-butten" onClick={handleSubmit}>
