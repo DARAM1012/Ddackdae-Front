@@ -1,29 +1,63 @@
 import "./UserInformationModal.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import titlelogo from "@/assets/logo.png";
 import { FaXmark } from "react-icons/fa6";
 import kakaologo from "@/assets/kakao.png";
-import userimage from "@/assets/samp.webp";
+import userimage from "@/assets/defaultimage.png";
 import buttenimage1 from "@/assets/buttenimage1.png";
+import { UserDtailGetApi } from "@/api/UserdetailApi";
 
 function UserInformationModal({ onClose, UserInformationClick }) {
   const [userData, setUserData] = useState({
-    username: "사카밤바스피스",
-    useremail: "Bombardiro@kakao.com",
-    userphonenumber: "011-1234-5678",
-    usercarnumber: "123가 5678",
-    usercar: "아스라다 / GSX",
-    usercarmodel: "포도cu / 레이싱카",
-    usertext: "신세기 GPX 사이버 포뮬러",
+    username: "",
+    useremail: "",
+    userphonenumber: "",
+    usercarnumber: "",
+    usercar: "",
+    usercarmodel: "",
+    usertext: "",
+    profileImageUrl: "",
   });
+
+  // 전화번호 포맷팅 함수
+  const formatPhoneNumber = (phoneNumber) => {
+    if (!phoneNumber) return ""; // 만약 전화번호가 없다면 빈 문자열 반환
+    return phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3");
+  };
 
   const profileattack = (e) => {
     e.preventDefault();
   };
 
   const exit = () => {
-    alert(`탈퇴 ㅠ`);
+    alert(`탈퇴`);
   };
+
+  useEffect(() => {
+    const getuser = async () => {
+      const token = localStorage.getItem("localToken");
+
+      if (token) {
+        try {
+          const res = await UserDtailGetApi(token);
+          setUserData({
+            username: res.nickName,
+            useremail: res.email,
+            userphonenumber: formatPhoneNumber(res.phone),
+            usercarnumber: res.carNumber,
+            usercar: res.manuCompany + " / " + res.carKnd,
+            usercarmodel: res.fuelType + " / " + res.carModel,
+            usertext: res.usertext || "", // usertext가 없다면 빈 문자열
+            profileImageUrl: res.profileImageUrl, // 이미지 URL 저장
+          });
+        } catch (e) {
+          throw e;
+        }
+      }
+    };
+    getuser();
+  }, []);
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       {/* <div className="modal-backdrop" onClick={onClose}> */}
@@ -46,7 +80,7 @@ function UserInformationModal({ onClose, UserInformationClick }) {
               <div className="modal-profile-image-div">
                 <div className="modal-userinfor-image" onClick={profileattack}>
                   <img
-                    src={userimage}
+                    src={userData.profileImageUrl || userimage} // URL이 없으면 기본 이미지로 대체
                     alt="userimage"
                     className="modal-userimage"
                   />

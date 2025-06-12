@@ -98,7 +98,7 @@ function Sidebar() {
         onClick={() => {
           confirmAlert({
             title: "로그아웃 체크",
-            message: "로그아웃 활거임??",
+            message: "로그아웃 하시겠습니까??",
             buttons: [
               {
                 label: "네",

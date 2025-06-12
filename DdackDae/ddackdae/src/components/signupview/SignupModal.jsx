@@ -196,7 +196,7 @@ const phoneRegex = /^[0-9]+$/;
                 <p>이메일</p>
                 <input
                   type="text"
-                  placeholder="8~16자 / 문자,숫자,특수 문자 모두 포함"
+                  placeholder="8~50자 / 문자,숫자,특수 문자 모두 포함"
                   value={userData.email}
                   onChange={(e) =>
                     setUserData({ ...userData, email: e.target.value })

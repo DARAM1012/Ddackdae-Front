@@ -11,13 +11,18 @@ import useUserLoginStore from "@/stores/UserLoginStore";
 function LoginModal({
   onClose,
   onSignupClick,
-  reviewClick,
-  UserInformationClick,
+  // reviewClick,
+  // UserInformationClick,
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const setLogin = useUserLoginStore((state) => state.setLogin);
+
+  const handleKakaoLogin = () => {
+  // 카카오 로그인 URL로 리다이렉트
+  window.location.href = "http://ddak-dae.kro.kr/oauth2/authorization/kakao";
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +65,7 @@ function LoginModal({
         <div className="modal-subtext">
           <p>소셜아이디로 1초 만에 로그인 하세요.</p>
         </div>
-        <div className="modal-login-div1" onClick={reviewClick}>
+        <div className="modal-login-div1" onClick={handleKakaoLogin}>
           <img
             src={kakaologo}
             alt="kakaologo"
