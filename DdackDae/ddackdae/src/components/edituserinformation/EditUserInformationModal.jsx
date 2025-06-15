@@ -10,7 +10,7 @@ function EditUserModal({ onClose, UserInformationClick }) {
   
     const [userData, setUserData] = useState({
     username: "",
-    useremail: "",
+    // useremail: "",
     userphonenumber: "",
     usercarnumber: "",
     usercar: "",
@@ -85,6 +85,7 @@ function EditUserModal({ onClose, UserInformationClick }) {
   // 수정된 데이터 추가 (텍스트 데이터)
   formData.append("customerUpdateRequestDto", JSON.stringify({
     nickName: userData.username,
+    // useremail: userData.useremail,
     phone: userData.userphonenumber,
     carNumber: userData.usercarnumber,
     carKnd: userData.custCarKind,

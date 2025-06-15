@@ -44,6 +44,8 @@ function LoginModal({
       const listUpdate = await FavoritesApi();
       setFavoritesList(listUpdate);
       onClose();
+
+      window.location.reload();
     } catch (error) {
       alert("존재하지 않는 계정 입니다.");
     }

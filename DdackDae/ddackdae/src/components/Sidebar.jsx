@@ -20,6 +20,7 @@ import { LoginCustomerGetApi } from "../api/LoginApi.jsx";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import useFavoriteStore from "@/stores/useFavoriteStore.js";
+import { UserDtailGetApi } from "@/api/UserdetailApi";
 
 function Sidebar() {
   const { isOpen, toggleSidebar, openSidebar } = useSidebarStore();
@@ -65,19 +66,32 @@ function Sidebar() {
   };
   useEffect(() => {
     const GetUserImage = async () => {
+      const token =
+        localStorage.getItem("localToken") ||
+        localStorage.getItem("SocialToken");
+      if (!token) return;
+
       try {
-        const token = localStorage.getItem("localToken");
-        if (isLoggedIn && token) {
-          const data = await LoginCustomerGetApi(token);
-          setUserProfileImage(data.profileImageUrl); // 프로필 이미지 설정
-        }
+        const data = await LoginCustomerGetApi(token);
+        setUserProfileImage(data.profileImageUrl);
       } catch (err) {
         console.error("유저 정보 불러오기 실패:", err);
+      }
+
+      try {
+        const res = await UserDtailGetApi(token);
+
+        if (localStorage.getItem("SocialToken") && res.email === null) {
+          alert("회원정보를 추가입력 바랍니다.");
+           EditUser()
+        }
+      } catch (e) {
+        console.log(e);
       }
     };
 
     GetUserImage();
-  }, [isLoggedIn]);
+  }, []); // 최초 렌더링 시 한 번 실행
 
   return (
     <section className="sidebar">
@@ -102,55 +116,53 @@ function Sidebar() {
         </div>
 
         <div className="sidebarBottom">
-
-         {/* 로그인, 로그아웃 버튼 */}
-<div className="sidebarIcon">
-  {/* 로그인 상태 */}
-  {isLoggedIn ? (
-    <>
-      <div
-        className="userCircle"
-        onClick={UserInformation}
-        style={{
-           backgroundImage: `url(${userProfileImage || ""})`
-        }}
-      />
-      <span
-        onClick={() => {
-          confirmAlert({
-            title: "로그아웃 체크",
-            message: "로그아웃 하시겠습니까??",
-            buttons: [
-              {
-                label: "네",
-                onClick: () => {
-                  localStorage.removeItem("localToken");
-                  logout();
-                },
-              },
-              {
-                label: "아니요",
-                onClick: () => {},
-              },
-            ],
-          });
-        }}
-      >
-        로그아웃
-      </span>
-    </>
-  ) : (
-    <div className="sidebarIconlogindiv" onClick={loginview}>
-      <div>
-        <FaUser />
-      </div>
-      <span>
-        로그인
-      </span>
-    </div>
-  )}
-</div>
-
+          {/* 로그인, 로그아웃 버튼 */}
+          <div className="sidebarIcon">
+            {/* 로그인 상태 */}
+            {isLoggedIn ? (
+              <>
+                <div
+                  className="userCircle"
+                  onClick={UserInformation}
+                  style={{
+                    backgroundImage: `url(${userProfileImage || ""})`,
+                  }}
+                />
+                <span
+                  onClick={() => {
+                    confirmAlert({
+                      title: "로그아웃 체크",
+                      message: "로그아웃 하시겠습니까??",
+                      buttons: [
+                        {
+                          label: "네",
+                          onClick: () => {
+                            localStorage.removeItem("localToken");
+                            localStorage.removeItem("SocialToken");
+                            logout();
+                            window.location.reload();
+                          },
+                        },
+                        {
+                          label: "아니요",
+                          onClick: () => {},
+                        },
+                      ],
+                    });
+                  }}
+                >
+                  로그아웃
+                </span>
+              </>
+            ) : (
+              <div className="sidebarIconlogindiv" onClick={loginview}>
+                <div>
+                  <FaUser />
+                </div>
+                <span>로그인</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

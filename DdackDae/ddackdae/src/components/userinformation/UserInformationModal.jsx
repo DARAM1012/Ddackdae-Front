@@ -40,6 +40,7 @@ function UserInformationModal({ onClose, UserInformationClick }) {
       if (token) {
         try {
           const res = await UserDtailGetApi(token);
+
           setUserData({
             username: res.nickName,
             useremail: res.email,

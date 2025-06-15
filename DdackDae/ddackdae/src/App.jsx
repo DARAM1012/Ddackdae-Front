@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Sidebar from "@/components/Sidebar.jsx";
 import useSidebarStore from "@/stores/useSidebarStore";
+import useUserLoginStore from "../src/stores/UserLoginStore";
 import "./App.css";
 
 const BASE_URL = import.meta.env.VITE_API_BASE;
@@ -13,10 +14,14 @@ export default function App() {
   const markersRef = useRef([]);
   const openSidebar = useSidebarStore((s) => s.openSidebar);
 
+   const initializeLogin = useUserLoginStore((s) => s.initialize);
+
+
   // ────────────────────────────────────────────────────────────────
   // 1) 네이버 맵 스크립트 로드 + 초기화
   // ────────────────────────────────────────────────────────────────
   useEffect(() => {
+    initializeLogin();
     const script = document.createElement("script");
     script.src = `
       https://openapi.map.naver.com/openapi/v3/maps.js

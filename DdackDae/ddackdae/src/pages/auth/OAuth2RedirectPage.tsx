@@ -9,8 +9,9 @@ const OAuth2RedirectPage: React.FC = () => {
     const token = searchParams.get("token");
     if (token) {
       // 토큰을 로컬 스토리지 등에 저장
-      localStorage.setItem("localToken", token);
-
+      localStorage.setItem('localToken', token);
+      localStorage.setItem("SocialToken", token);
+console.log(token)
       // 로그인 상태 관리 스토어가 있다면 여기서 로그인 상태 업데이트
       // 예: setLogin(true);
 
