@@ -67,8 +67,7 @@ function Sidebar() {
   useEffect(() => {
     const GetUserImage = async () => {
       const token =
-        localStorage.getItem("localToken") ||
-        localStorage.getItem("SocialToken");
+        localStorage.getItem("localToken");
       if (!token) return;
 
       try {

@@ -17,7 +17,7 @@ const LoginCallback = () => {
       setToken(token); // Zustand, Recoil 등 사용 시
 
       // 2. 유저 정보 불러오기 or 홈으로 리디렉션
-      navigate('/'); // 또는 라우터 푸시
+      window.location.href = "http://ddakdae-backend.kro.kr";
     } else {
       // 토큰 없을 경우 에러 처리
       console.error('No token in callback URL');
